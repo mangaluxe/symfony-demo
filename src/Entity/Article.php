@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-use Cocur\Slugify\Slugify;
+// use Cocur\Slugify\Slugify;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -57,11 +57,11 @@ class Article
 
 
 
-    // Ajouté :
-    public function getSlug(): string
-    {
-        return (new Slugify())->slugify($this->title);
-    }
+    // // Ajouté :
+    // public function getSlug(): string
+    // {
+    //     return (new Slugify())->slugify($this->title);
+    // }
 
 
 

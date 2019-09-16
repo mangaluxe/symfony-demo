@@ -1,13 +1,15 @@
 <?php
 
 namespace App\Controller;
-
-use App\Entity\Article; // Ajouté
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+
+use App\Entity\Article; // Ajouté
+use Doctrine\Common\Persistence\ObjectManager; // Ajouté
+use Symfony\Component\HttpFoundation\Request; // Ajouté pour get, post...
+
 use App\Repository\ArticleRepository; // Utiliser injection de dépendance
-use Doctrine\Common\Persistence\ObjectManager;
 
 
 class BlogController extends AbstractController
@@ -23,6 +25,9 @@ class BlogController extends AbstractController
         $this->em = $em;
     }
     // -----------
+
+
+
 
 
     /**
@@ -52,6 +57,10 @@ class BlogController extends AbstractController
         ]);
     }
 
+
+
+
+
     /**
      * @Route("/", name="home")
      */
@@ -63,6 +72,35 @@ class BlogController extends AbstractController
             'message1' => 'Mon premier message.'
         ]);
     }
+
+
+
+
+    
+
+
+    /**
+     * @Route("/blog/new", name="blog_create")
+     */
+    public function create(Request $request) // On insère "Request $request". Ne pas oublier en haut: use Symfony\Component\HttpFoundation\Request;
+    {
+        $article = new Article();
+
+        $form = $this->createFormBuilder($article)
+                ->add('title') 
+                ->add('content')
+                ->add('image')
+                ->getForm();
+
+        return $this->render('blog/create.html.twig', [
+            'formArticle' => $form->createView()
+        ]);
+    }
+
+
+
+
+
 
     /**
      * @Route("/blog/{id}", name="blog_show")
@@ -87,7 +125,6 @@ class BlogController extends AbstractController
         ]);
     }
 
-
     // // Marche aussi :
     // public function show(Article $article)
     // {
@@ -95,6 +132,10 @@ class BlogController extends AbstractController
     //         'article' => $article
     //     ]);
     // }
+
+
+
+
 
 
 
