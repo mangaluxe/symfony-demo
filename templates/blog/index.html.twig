@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des articles{% endblock %}
+
+{% block body %}
+
+    {# Affiche liste des articles #}
+
+    <section class="articles">
+
+        {% for article in articles %}
+        <articles>
+            <h2>{{ article.title }}</h2>
+            <div class="metadata">Ecrit le {{ article.createdAt | date('d/m/Y à H:i:s') }} dans la catégorie Politique</div>
+            <div class="content">
+                <img src="{{ article.image }}" alt="">
+                <p>{{ article.content | raw }}</p>
+                <a href="{{ path('blog_show', {'id': article.id}) }}" class="btn btn-primary">Lire la suite</a> {# La fonction path peut prendre un 2e parametre : {'id': article.id}. On peut aussi écrire {id: article.id} #}
+            </div>
+        </article>
+        {% endfor %}
+
+    </section>
+    
+
+{% endblock %}

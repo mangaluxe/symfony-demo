@@ -1,0 +1,99 @@
+﻿Fixtures : pour créer de fausses données dans la BDD
+==========================================================
+
+Installer dans Cmder : composer require orm-fixtures --dev
+
+php bin/console make:fixtures
+
+AppFixtures
+
+=============
+Mettre dans le fichier AppFixtures.php :
+=============
+
+<?php
+namespace App\DataFixtures;
+
+use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\Persistence\ObjectManager;
+use App\Entity\Article; // Ajouté
+
+class ArticleFixtures extends Fixture
+{
+    public function load(ObjectManager $manager)
+    {
+        // Ajouté :
+        for ($i=1; $i<10; $i++)
+        {
+            $article = new Article();
+
+            $article->setTitle("Titre de l'article n°$i")
+                    ->setContent("<p>Contenu de l'article n°$i</p>")
+                    ->setImage("https://placehold.it/350x150")
+                    ->setCreatedAt(new \DateTime());
+            
+            $manager->persist($article);
+
+        }
+
+        $manager->flush(); // flaush: sauvegarde les objets suivis dans le manager
+    }
+}
+
+
+=============
+
+php bin/console doctrine:fixtures:load
+y
+
+
+==========================================================
+Faker : pour créer de fausses données aléatoires dans la BDD (ne marche pas chez moi)
+==========================================================
+
+composer require fzaninotto/Faker
+
+=============
+Modifier dans le fichier AppFixtures.php :
+=============
+
+<?php
+namespace App\DataFixtures;
+
+use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\Persistence\ObjectManager;
+use App\Entity\Ad;
+use Faker\Factory; // Ajouté
+
+class AppFixtures extends Fixture
+{
+    public function load(ObjectManager $manager)
+    {
+        $faker = Factory::create('FR-fr'); // Ajouté
+
+        for($i=1; $i<20; $i++)
+        {
+            $ad = new Ad(); // Modifié
+            
+            // Modifiés :
+            $title = $faker->sentence();
+            $coverImage = $faker->imageURL(1000,350);
+            $introduction = $faker->paragraph(2);
+            $content = '<p>' . join('</p><p>', $faker->paragraphe(5)) . '</p>');
+
+            $ad->setTitle($title)
+            ->setSlug("titre-de-l-annonce-n-$i")
+            ->setCoverImage($coverImage)
+            ->setIntroduction($introduction)
+            ->setContent($content)
+            ->setPrice(rand(40, 200))
+            ->setRooms(rand(1, 4));
+
+            $manager->persist($ad);
+            // $product = new Product();
+            // $manager->persist($product);
+        }
+
+        $manager->flush();
+    }
+}

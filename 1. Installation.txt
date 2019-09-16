@@ -1,0 +1,59 @@
+﻿1. Installer Composer : https://getcomposer.org/download/
+
+2. Aller dans le bon dossier avec Cmder : cd ..\symfony-demo
+Si on a cloné un projet existant : composer install
+
+3. Générer un nouveau projet avec Cmder : composer create-project symfony/website-skeleton symfony-demo
+
+4. (À chaque fois) Lancer Xammp ou autre serveur php
+
+5. (À chaque fois) Lancer : php bin/console server:run
+ou: php -S 127.0.0.1:8000 -t public
+
+6. (À chaque fois) Dans navigateur : localhost:8000
+
+========================================================================
+Créer une page (méthode avec annotations dans controller) (Conseillée) :
+========================================================================
+=====================================
+Méthode avec ligne de commande :
+================================
+
+1. Ouvrir une autre fenetre avec Cmder.
+- Taper: php bin/console make:controller
+- Puis (exemple): BlogController
+
+- Pour faire un lien dans twig : <a href="{{ path('blog_show') }}">Lien</a>
+
+=====================================
+Méthode manuelle :
+==================
+
+- Créer fichier PropertyController.php :
+
+namespace App\Controller;
+
+// use Symfony\Component\HttpFoundation\Response; // Que pour les textes. Plus besoin pour $this->render('property/index.html.twig');
+use Symfony\Component\Routing\Annotation\Route; // Pour Routes
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController; // Pour class extends
+
+class PropertyController extends AbstractController
+{
+    /**
+     * @Route("/biens", name="property.index")
+     */
+    public function index()
+    {
+        return $this->render('property/index.html.twig');
+    }
+}
+
+- Créer fichier templates\property\index.html.twig :
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Property page</h1>
+{% endblock %}
+
+- Pour faire un lien vers cette page : <a href="{{path('property.index')}}">Lien</a>

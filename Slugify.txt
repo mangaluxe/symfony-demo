@@ -1,0 +1,11 @@
+Taper dans Cmder pour installer :
+composer require cocur/slugify
+
+Mettre dans le fichier Entity\Entity.php :
+use Cocur\Slugify\Slugify;
+
+// Ajouté :
+public function getSlug(): string
+{
+    return (new Slugify())->slugify($this->title);
+}

@@ -1,0 +1,181 @@
+﻿=====================================================================================
+Doctrine : pour correspondre avec la BDD
+
+Entity: Représente une table
+Manager : Permet de manipuler une ligne : Créer/Modifier/Effacer
+Repository : Permet de faire des sélections : Lire
+=====================================================================================
+
+1. Dans le fichier .env, mettre : DATABASE_URL=mysql://root:@127.0.0.1:3306/symfony-demo
+
+2. Ouvrir une autre fenêtre avec Cmder. Aller dans le bon dossier avec Cmder : cd ..\Symfony-demo
+
+3. Puis taper dans Cmder : php bin/console doctrine:database:create
+
+4. (À répéter si nécessaire !) Créer entité (table) : php bin/console make:entity
+Puis choisir nom de la table (1er lettre en majuscule). Exemple : Article
+
+Ensuite créer les propriétés (champs) "New property name" en camelCase. Exemples : title, content, image, createdAt.
+
+Pour finir : Entrée sur clavier
+
+=======
+
+5. Ensuite faire la migration tous ça :
+php bin/console make:migration
+php bin/console doctrine:migrations:migrate
+y
+
+======= Editer entité (table) : =======
+
+php bin/console make:entity User
+
+======= Editer un champ (propriété) déjà migré : =======
+
+Aller dans Entity\Entity.php
+
+Faire les modifs. Exemple:
+Remplacer: @ORM\Column(type="boolean")
+Par: @ORM\Column(type="boolean", options={"default": false})
+
+Faire migration pour finir
+
+=========================================
+Jointures :
+
+OneToOne = 1:1
+ManyToOne = 1:n
+ManyToMany = n:m
+
+=============================
+Exemples :
+-----------------------------
+Jointure 1-n :
+
+php bin/console make:entity
+
+Events
+
+lieu (n'importe quel nom pour la jointure)
+
+ManyToOne
+
+Lieu
+
+Puis : no, yes
+-----------------------------
+
+Jointure n-m (sans ajout) :
+
+php bin/console make:entity
+
+Events
+
+category (n'importe quel nom pour la jointure)
+
+ManyToMany
+
+Category
+
+Puis : no, yes
+
+-----------------------------
+Jointure 1-n :
+
+php bin/console make:entity
+
+Events
+
+owner
+
+ManyToOne
+
+Users
+
+no
+
+yes
+
+events
+
+no
+
+----------------------------
+
+php bin/console make:entity
+
+Participation
+events
+ManyToOne
+Events
+no
+yes
+participations
+yes
+users
+ManyToOne
+Users
+no
+yes
+participations
+yes
+bookingNumber
+Entrée
+Entrée
+Entrée
+
+Ensuite, aller dans le fichier src\Entity\Participation.php\, supprimer private $id, ajouter * @ORM\Id() dans private $event; et private $user;
+
+===============================================================================
+Créer des entités
+=================
+Recup EntityManager:
+$em = $this->getDoctrine()->getManager();
+
+Création entité :
+$movie = new Movie();
+$movie->setTitle( 'Inception' );
+
+Persistance de l'entité :
+$em->persist( $movie );
+$em->flush();
+
+===============================================================================
+Recup entités
+=============
+
+- Recup un depot :
+$movieRepository = $this->getDoctrine()->getRepository( 'App:Movie' );
+
+- Recup toutes les entités :
+$movies = $movieRepository->findAll();
+
+- Rechercher des entités :
+$movies = $movieRepository->findBy( array(
+    'title' => 'Inception'
+), array( 'id' => 'DESC' ), 5, 0 ); // 5 résultats. Commence à l'offset 0.
+
+- Rechercher 1 entité :
+$movies = $movieRepository->findOneBy ( array( 'title' => 'Everest' ) );
+
+- Recup une entité par son id :
+$movie = $movieRepository->find( 1 );
+
+===============================================================================
+Recupération avancée
+====================
+
+- Utilisation des depots : src\Repository\{entity}Repository.php
+
+- Recup personnalisée :
+public function customQury() {
+    $stmt = $this->createQueyBuilder('m');
+}
+
+- Ajouter WHERE :
+$stmt->where( 'm.title LIKE :term' );
+$stmt->setParameter( ':term', '%Knight%' );
+
+- Compter le nb d'entrées :
+$stmt->select('count(m)');
+return $stmt->getQuery()->getSingleScalarResult();

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page de blog{% endblock %}
+
+{% block body %}
+
+    <h1>Bienvenue !</h1>
+    <div class="center"><img src="{{ asset('assets/img/image.gif') }}"></div>
+
+    <p>Votre âge : {{ age }}</p>
+    <p>Votre message : {{ message1 }}</p>
+
+    {% if age >= 18 %}
+    <p>Bienvenue ! Vous avez {{ age }} ans, vous pouvez entrer !</p>
+    {% elseif age > 15 and age < 18 %}
+        <p>Interdit aux mineurs ! Vous avez seulement {{ age }} ans</p>
+    {% elseif age <= 15 %}
+        <p>Interdit aux enfants !  Vous avez seulement {{ age }} ans</p>
+    {% endif %}
+
+    {# Créer nouveau article : <a href="{{ path('blog_create') }}">Nouveau</a> #}
+
+
+
+
+{% endblock %}
