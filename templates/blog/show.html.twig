@@ -8,12 +8,33 @@
 
     <articles>
         <h2>{{ article.title }}</h2>
-        <div class="metadata">Ecrit le {{ article.createdAt | date('d/m/Y à H:i:s') }} dans la catégorie Politique</div>
+
+        {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+        {% endfor %}
+
+        <div class="metadata">Ecrit le {{ article.createdAt | date('d/m/Y à H:i:s') }} dans la catégorie {{ article.category.title }}</div>
         <div class="content">
             <img src="{{ article.image }}" alt="">
             <p>{{ article.content | raw }}</p>
         </div>
     </article>
 
+    <section id="commentaires">
+        {% for comment in article.comments %}
+            <div class="comment">
+                <div class="row">
+                    <div class="col-3">
+                    {{ comment.author }} ({{ comment.createdAt | date('d/m/Y à H:i:s') }})
+                    </div>
+                    <div class="col">
+                    {{ comment.content | raw }})
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
 
 {% endblock %}

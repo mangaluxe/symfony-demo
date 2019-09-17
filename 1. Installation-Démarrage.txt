@@ -1,9 +1,9 @@
 ﻿1. Installer Composer : https://getcomposer.org/download/
 
 2. Aller dans le bon dossier avec Cmder : cd ..\symfony-demo
-Si on a cloné un projet existant : composer install
 
 3. Générer un nouveau projet avec Cmder : composer create-project symfony/website-skeleton symfony-demo
+Ou si on a cloné un projet existant : composer install
 
 4. (À chaque fois) Lancer Xammp ou autre serveur php
 

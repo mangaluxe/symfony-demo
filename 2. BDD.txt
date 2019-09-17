@@ -8,7 +8,7 @@ Repository : Permet de faire des sélections : Lire
 
 1. Dans le fichier .env, mettre : DATABASE_URL=mysql://root:@127.0.0.1:3306/symfony-demo
 
-2. Ouvrir une autre fenêtre avec Cmder. Aller dans le bon dossier avec Cmder : cd ..\Symfony-demo
+2. Ouvrir une autre fenêtre avec Cmder. Aller dans le bon dossier avec Cmder : cd ..\symfony-demo
 
 3. Puis taper dans Cmder : php bin/console doctrine:database:create
 
@@ -40,142 +40,48 @@ Par: @ORM\Column(type="boolean", options={"default": false})
 
 Faire migration pour finir
 
-=========================================
+=====================================================================================
 Jointures :
 
-OneToOne = 1:1
-ManyToOne = 1:n
-ManyToMany = n:m
+relation
 
-=============================
+ManyToOne = 1:n (plusieurs commentaires - un seul article)
+OneToMany = n:1 (une seule catégorie - plusieurs articles)
+ManyToMany = n:m
+OneToOne = 1:1
+
+==========================================
 Exemples :
 -----------------------------
-Jointure 1-n :
 
 php bin/console make:entity
-
-Events
-
-lieu (n'importe quel nom pour la jointure)
-
-ManyToOne
-
-Lieu
-
-Puis : no, yes
------------------------------
-
-Jointure n-m (sans ajout) :
-
-php bin/console make:entity
-
-Events
-
-category (n'importe quel nom pour la jointure)
-
-ManyToMany
 
 Category
+title
+description
+articles
+relation
+Article
+OneToMany (une seule catégorie - plusieurs articles)
+category
+no, no
 
-Puis : no, yes
+Faire migration pour finir
 
 -----------------------------
-Jointure 1-n :
 
 php bin/console make:entity
 
-Events
+Comment
+author
+content
+createdAt
+article
+relation
+Article
+ManyToOne (plusieurs commentaires - un seul article)
+no, yes
+comments
+yes (car on doit supprimer les commentaires si l'article est effacé)
 
-owner
-
-ManyToOne
-
-Users
-
-no
-
-yes
-
-events
-
-no
-
-----------------------------
-
-php bin/console make:entity
-
-Participation
-events
-ManyToOne
-Events
-no
-yes
-participations
-yes
-users
-ManyToOne
-Users
-no
-yes
-participations
-yes
-bookingNumber
-Entrée
-Entrée
-Entrée
-
-Ensuite, aller dans le fichier src\Entity\Participation.php\, supprimer private $id, ajouter * @ORM\Id() dans private $event; et private $user;
-
-===============================================================================
-Créer des entités
-=================
-Recup EntityManager:
-$em = $this->getDoctrine()->getManager();
-
-Création entité :
-$movie = new Movie();
-$movie->setTitle( 'Inception' );
-
-Persistance de l'entité :
-$em->persist( $movie );
-$em->flush();
-
-===============================================================================
-Recup entités
-=============
-
-- Recup un depot :
-$movieRepository = $this->getDoctrine()->getRepository( 'App:Movie' );
-
-- Recup toutes les entités :
-$movies = $movieRepository->findAll();
-
-- Rechercher des entités :
-$movies = $movieRepository->findBy( array(
-    'title' => 'Inception'
-), array( 'id' => 'DESC' ), 5, 0 ); // 5 résultats. Commence à l'offset 0.
-
-- Rechercher 1 entité :
-$movies = $movieRepository->findOneBy ( array( 'title' => 'Everest' ) );
-
-- Recup une entité par son id :
-$movie = $movieRepository->find( 1 );
-
-===============================================================================
-Recupération avancée
-====================
-
-- Utilisation des depots : src\Repository\{entity}Repository.php
-
-- Recup personnalisée :
-public function customQury() {
-    $stmt = $this->createQueyBuilder('m');
-}
-
-- Ajouter WHERE :
-$stmt->where( 'm.title LIKE :term' );
-$stmt->setParameter( ':term', '%Knight%' );
-
-- Compter le nb d'entrées :
-$stmt->select('count(m)');
-return $stmt->getQuery()->getSingleScalarResult();
+Faire migration pour finir

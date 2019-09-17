@@ -1,0 +1,9 @@
+﻿Dans Controller :
+        $this->addFlash('success', 'Ajouté !');
+
+Dans twig :
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}

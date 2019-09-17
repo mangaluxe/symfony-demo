@@ -1,0 +1,49 @@
+======================================================================================
+Dans fichier src\Entity\Article.php :
+===========================================
+
+use Symfony\Component\Validator\Constraints as Assert; // Ajouté pour validation de formulaire
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity; // Ajouté pour UniqueEntity
+
+
+/**
+ * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
+ * @UniqueEntity("title")
+ */
+class Article
+{
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\Length(
+     *    min = 2,
+     *    max = 50,
+     *    minMessage = "Minimum {{ limit }} caractères !",
+     *    maxMessage = "Maximum {{ limit }} caractères !"
+     * )
+     */
+    private $title;
+    
+    
+    
+    /**
+     * @ORM\Column(type="text")
+     * @Assert\Length(min=10)
+     */
+    private $content;
+    
+    
+    
+    /**
+     * @Assert\Url(
+     *    message = "Cet url '{{ value }}' n’est pas valide !",
+     * )
+     */
+     private $url;
+    
+    
+    
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\Regex("/^[0-9]{5}$/")
+     */
+    private $postal_code;

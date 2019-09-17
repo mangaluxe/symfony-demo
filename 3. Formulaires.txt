@@ -11,7 +11,7 @@ Exemple avec ArticleType :
      * @Route("/blog/new", name="blog_create")
      * @Route("/blog/{id}/edit", name="blog_edit")
      */
-     public function form(Article $article = null, Request $request)
+     public function form(Article $article = null, Request $request, ObjectManager $manager)
      //  public function create(Article $article = null, Request $request, ObjectManager $manager)
      {
         // dump($request);
@@ -31,7 +31,7 @@ Exemple avec ArticleType :
         
             $article->setCreatedAt(new \DateTime()); // Met automatiquement la date actuelle dans createdAt
             
-            $manager = $this->getDoctrine()->getManager(); // Mettre en commentaire si on utilise injection de dépendance ObjectManager
+            // $manager = $this->getDoctrine()->getManager(); // Mettre en commentaire si on utilise injection de dépendance ObjectManager
             $manager->persist($article);
             $manager->flush();
 
@@ -44,9 +44,3 @@ Exemple avec ArticleType :
             'editMode' =>$article->getId() !== null
         ]);
      }
-
-======================================================================================
-Dans fichier Entity/Article.php :
-===========================================
-
-use Symfony\Component\Validator\Constraints as Assert; // Pour validation du formulaire

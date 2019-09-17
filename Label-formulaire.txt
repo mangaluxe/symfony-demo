@@ -1,0 +1,6 @@
+Dans src\Form\EntiteType.php :
+
+        $builder
+            ->add('title', null, [
+                'label' => 'Titre'
+            ])
