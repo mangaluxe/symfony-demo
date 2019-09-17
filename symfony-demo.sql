@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  mar. 17 sep. 2019 à 16:25
+-- Généré le :  mar. 17 sep. 2019 à 17:05
 -- Version du serveur :  10.4.6-MariaDB
 -- Version de PHP :  7.3.9
 
@@ -121,7 +121,21 @@ CREATE TABLE `migration_versions` (
 INSERT INTO `migration_versions` (`version`, `executed_at`) VALUES
 ('20190916125018', '2019-09-16 12:52:20'),
 ('20190917120014', '2019-09-17 12:03:46'),
-('20190917121411', '2019-09-17 12:15:02');
+('20190917121411', '2019-09-17 12:15:02'),
+('20190917143700', '2019-09-17 14:37:44');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Index pour les tables déchargées
@@ -154,6 +168,12 @@ ALTER TABLE `migration_versions`
   ADD PRIMARY KEY (`version`);
 
 --
+-- Index pour la table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT pour les tables déchargées
 --
 
@@ -174,6 +194,12 @@ ALTER TABLE `category`
 --
 ALTER TABLE `comment`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+
+--
+-- AUTO_INCREMENT pour la table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Contraintes pour les tables déchargées

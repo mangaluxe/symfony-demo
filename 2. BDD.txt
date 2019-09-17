@@ -85,3 +85,14 @@ comments
 yes (car on doit supprimer les commentaires si l'article est effacé)
 
 Faire migration pour finir
+
+-----------------------------
+
+php bin/console make:entity
+
+User
+email
+username
+password
+
+Faire migration pour finir

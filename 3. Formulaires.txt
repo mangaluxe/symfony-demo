@@ -1,46 +1,28 @@
+=======================================================================================
+Créer un formulaire automatique en ligne de commande :
+php bin/console make:form
+
+===========================================
+Exemple avec ArticleType :
+=======================
+
 php bin/console make:form
 
 Nom du formulaire. Exemple : ArticleType
 Relier avec l'entité. Exemple : Article
 
 ===========================================
-Exemple avec ArticleType :
+Exemple avec RegistrationType :
 =======================
 
-    /**
-     * @Route("/blog/new", name="blog_create")
-     * @Route("/blog/{id}/edit", name="blog_edit")
-     */
-     public function form(Article $article = null, Request $request, ObjectManager $manager)
-     //  public function create(Article $article = null, Request $request, ObjectManager $manager)
-     {
-        // dump($request);
+php bin/console make:form
 
-        // Pour formulaire :
-        if (!$article)
-        {
-            $article = new Article();
-        }    
-        
-        $form = $this->createForm(ArticleType::class, $article); // On n'oublie pas le "use App\Form\ArticleType;" en haut pour appeler ArticleType
-        $form->handleRequest($request);
+Nom du formulaire. Exemple : RegistrationType
+Relier avec l'entité. Exemple : User
 
-        // dump($article);
+On peut aller ensuite dans src\Form\RegistrationType.php pour ajouter :
+->add('confirm_password')
 
-        if ($form->isSubmitted() and $form->isValid()) {
-        
-            $article->setCreatedAt(new \DateTime()); // Met automatiquement la date actuelle dans createdAt
-            
-            // $manager = $this->getDoctrine()->getManager(); // Mettre en commentaire si on utilise injection de dépendance ObjectManager
-            $manager->persist($article);
-            $manager->flush();
+Ensuite aller dans src\Entity\User.php pour ajouter :
 
-            return $this->redirectToRoute('blog_show', ['id' => $article->getId()]);
-
-        }
-
-        return $this->render('blog/create.html.twig', [
-            'formArticle' => $form->createView(),
-            'editMode' =>$article->getId() !== null
-        ]);
-     }
+public $confirm_password;

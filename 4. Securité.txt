@@ -1,0 +1,6 @@
+﻿1. Créer controller de la sécurité :
+
+    php bin/console make:controller
+    SecurityController
+    
+2.
