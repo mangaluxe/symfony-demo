@@ -30,6 +30,24 @@ class BlogController extends AbstractController
 
 
     /**
+     * ======================================== Accueil ========================================
+     * @Route("/", name="home")
+     */
+    public function home()
+    {
+        return $this->render('blog/home.html.twig', [
+            'title' => "Bienvenue ici les amis !", // On peut utiliser des paramètres ici pour donner des valeurs aux variables afin de les utiliser dans les fichiers twig
+            'age' => 31,
+            'message1' => 'Mon premier message.'
+        ]);
+    }
+
+
+
+
+
+    /**
+     * ======================================== Liste des articles ========================================
      * @Route("/blog", name="blog")
      */
     public function index()
@@ -61,24 +79,7 @@ class BlogController extends AbstractController
 
 
     /**
-     * @Route("/", name="home")
-     */
-    public function home()
-    {
-        return $this->render('blog/home.html.twig', [
-            'title' => "Bienvenue ici les amis !", // On peut utiliser des paramètres ici pour donner des valeurs aux variables afin de les utiliser dans les fichiers twig
-            'age' => 31,
-            'message1' => 'Mon premier message.'
-        ]);
-    }
-
-
-
-
-    
-
-
-    /**
+     * ======================================== Créer & Editer ========================================
      * @Route("/blog/new", name="blog_create")
      * @Route("/blog/{id}/edit", name="blog_edit")
      * Attention : On met cette route avant la route ci-dessous, sinon il va considérer le new comme une valeur d'{id}
@@ -131,10 +132,41 @@ class BlogController extends AbstractController
 
 
 
+    
+
+    /**
+     * ======================================== Effacer ========================================
+     * @Route("/blog/{id}/delete", name="blog_delete")
+     */
+    public function delete(Article $article, Request $request)
+    {
+        if ($this->isCsrfTokenValid('delete' . $article->getId(), $request->get('_token')))
+        // Token créé manuellement pour Delete
+        // Ajouter ceci dans twig :
+        // <form method="post" action="{{ path('blog_delete', {id: article.id}) }}" onsubmit="return confirm('Effacer ?')">
+        //     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ article.id) }}">
+        //     <button class="btn btn-danger">Supprimer</button>
+        // </form>
+        {
+            // return new Response('Suppression ok !'); // Pour tester
+
+            $this->em->remove($article);
+            $this->em->flush();
+
+            $this->addFlash('success', 'Supprimé !'); // Marche pas, car redirigé immédiatement ???
+        }
+
+        return $this->redirectToRoute('blog');
+        
+    }
+
+
+
 
 
 
     /**
+     * ======================================== Montrer 1 article ========================================
      * @Route("/blog/{id}", name="blog_show")
      */
     public function show($id)
@@ -164,12 +196,6 @@ class BlogController extends AbstractController
     //         'article' => $article
     //     ]);
     // }
-
-
-
-
-
-
 
 
 }
