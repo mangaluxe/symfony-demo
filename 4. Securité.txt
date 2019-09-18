@@ -25,9 +25,9 @@
             provider: in_database
 
             form_login:
-                login_path: security_login
-                check_path: security_login
+                login_path: security_login # Mettre le nom de la route connexion
+                check_path: security_login # Mettre le nom de la route connexion
 
             logout:
-                path: security_logout
-                target: blog
+                path: security_logout # Mettre le nom de la route déconnexion
+                target: blog # Mettre le nom de la route de la page où il faut rediriger quand on se déconnecte
