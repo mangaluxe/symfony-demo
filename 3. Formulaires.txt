@@ -28,7 +28,7 @@ Ensuite aller dans src\Entity\User.php pour ajouter :
 public $confirm_password;
 
 ===========================================
-Exemple avec RegistrationType :
+Exemple avec CommentType :
 =======================
 
 php bin/console make:form
