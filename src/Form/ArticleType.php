@@ -23,8 +23,8 @@ class ArticleType extends AbstractType
             ->add('image')
             ->add('category', EntityType::class, array( // Ajouté
                 'class' => Category::class,
-                'choice_label' => 'title',
-                'label' => 'Catégorie'
+                'label' => 'Catégorie',
+                'choice_label' => 'title' // On affiche le "title" de la "category"
             ))
             // ->add('createdAt') // On l'enlève, car on ne doit pas modifier la date de création dans le formulaire
         ;

@@ -3,9 +3,14 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert; // Ajouté pour validation de formulaire
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity; // Ajouté pour UniqueEntity
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @UniqueEntity("username")
+ * @UniqueEntity("email")
  */
 class User
 {
@@ -23,11 +28,23 @@ class User
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(
+     *    min = 2,
+     *    max = 100,
+     *    minMessage = "Minimum {{ limit }} caractères !",
+     *    maxMessage = "Maximum {{ limit }} caractères !"
+     * )
      */
     private $username;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(
+     *    min = 4,
+     *    max = 255,
+     *    minMessage = "Minimum {{ limit }} caractères !",
+     *    maxMessage = "Maximum {{ limit }} caractères !"
+     * )
      */
     private $password;
 

@@ -9,6 +9,8 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity; // Ajouté pour U
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
  * @UniqueEntity("title")
+ * @UniqueEntity("username")
+ * @UniqueEntity("email")
  */
 class Article
 {

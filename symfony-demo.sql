@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  mar. 17 sep. 2019 à 17:05
+-- Généré le :  mer. 18 sep. 2019 à 10:01
 -- Version du serveur :  10.4.6-MariaDB
 -- Version de PHP :  7.3.9
 
@@ -42,11 +42,11 @@ CREATE TABLE `article` (
 --
 
 INSERT INTO `article` (`id`, `title`, `content`, `image`, `created_at`, `category_id`) VALUES
-(36, 'Architecto recusandae velit veritatis aliquam quaerat possimus enim odit.', '<p>Facilis beatae quidem tenetur quidem et accusantium officia pariatur. Enim quasi et omnis molestiae maxime. Autem aspernatur voluptates rem nemo quod quos. Excepturi quia nisi at enim aut vel sint.</p><p>Odit sed voluptatem explicabo nulla natus est quaerat. Voluptatum at modi enim repellendus fugiat hic. Sunt perferendis ipsum impedit reprehenderit non.</p><p>Corrupti ea tempora sed quia aliquid. Cupiditate rerum eaque rerum possimus et sint optio. Libero ut amet mollitia officia quo animi quas deserunt. Fuga cumque tempore et et nihil eius odit.</p><p>Dolores voluptatem aut minima tempora officiis ex. Ad alias porro impedit rem rerum voluptas. Aut iste tempora nihil quidem. Iste fugit omnis voluptates ut sint.</p><p>Aliquid hic non eum non omnis odio. Deleniti explicabo tenetur quis minima enim minima voluptatem. Suscipit dolorem et sit eligendi.</p>', 'https://lorempixel.com/640/480/?40368', '2019-09-04 12:50:29', 3),
-(37, 'Autem omnis ut et beatae perferendis qui enim fuga.', '<p>Possimus ut sed sit ut. Consequatur explicabo autem provident. Rerum doloremque omnis dolorum repellat commodi consequuntur. Dicta ullam necessitatibus sint ullam architecto temporibus assumenda.</p><p>Ut vitae laudantium quasi doloremque eum. Error velit consequatur necessitatibus excepturi. Sit ipsa ab ducimus soluta. Maxime voluptatum eos occaecati repellendus minima magnam rem.</p><p>Asperiores qui tenetur autem vitae ducimus. Earum hic deleniti harum error. Magnam sed eos quibusdam ad consequatur illum quo. Aut facilis consequuntur voluptatem illum.</p><p>Fuga eos qui repudiandae tempore voluptatum incidunt. Veritatis quis eos voluptas alias earum accusamus. Voluptas omnis impedit sunt et impedit. Fuga minima aliquid iusto quo est.</p><p>Molestias quasi quae omnis sed. Nostrum ex sit amet fuga. Quia harum adipisci officiis dolorem. Eaque quas occaecati id repellendus eos laboriosam.</p>', 'https://lorempixel.com/640/480/?38005', '2019-04-27 00:43:00', 3),
-(38, 'Je suis un article créé par moi', 'Je suis une description qui ne sert à rien !', 'http://lorempixel.com/400/200/sports/1/', '2019-09-17 16:24:07', 3),
-(39, 'Titre nulle', 'Rien à dire et toi ?', 'http://lorempixel.com/400/200/sports/2/', '2019-09-17 16:24:25', 1),
-(40, 'Super titre', 'Je suis une description pour tester !', 'http://lorempixel.com/400/200/sports/3/', '2019-09-17 16:24:56', 3);
+(36, 'Titre corrigé', '<p>Facilis beatae quidem tenetur quidem et accusantium officia pariatur. Enim quasi et omnis molestiae maxime. Autem aspernatur voluptates rem nemo quod quos. Excepturi quia nisi at enim aut vel sint.</p><p>Odit sed voluptatem explicabo nulla natus est quaerat. Voluptatum at modi enim repellendus fugiat hic. Sunt perferendis ipsum impedit reprehenderit non.</p><p>Corrupti ea tempora sed quia aliquid. Cupiditate rerum eaque rerum possimus et sint optio. Libero ut amet mollitia officia quo animi quas deserunt. Fuga cumque tempore et et nihil eius odit.</p><p>Dolores voluptatem aut minima tempora officiis ex. Ad alias porro impedit rem rerum voluptas. Aut iste tempora nihil quidem. Iste fugit omnis voluptates ut sint.</p><p>Aliquid hic non eum non omnis odio. Deleniti explicabo tenetur quis minima enim minima voluptatem. Suscipit dolorem et sit eligendi.</p>', 'https://lorempixel.com/640/480/?40368', '2019-09-04 12:50:29', 3),
+(37, 'Je suis un titre créé', '<p>Possimus ut sed sit ut. Consequatur explicabo autem provident. Rerum doloremque omnis dolorum repellat commodi consequuntur. Dicta ullam necessitatibus sint ullam architecto temporibus assumenda.</p><p>Ut vitae laudantium quasi doloremque eum. Error velit consequatur necessitatibus excepturi. Sit ipsa ab ducimus soluta. Maxime voluptatum eos occaecati repellendus minima magnam rem.</p><p>Asperiores qui tenetur autem vitae ducimus. Earum hic deleniti harum error. Magnam sed eos quibusdam ad consequatur illum quo. Aut facilis consequuntur voluptatem illum.</p><p>Fuga eos qui repudiandae tempore voluptatum incidunt. Veritatis quis eos voluptas alias earum accusamus. Voluptas omnis impedit sunt et impedit. Fuga minima aliquid iusto quo est.</p><p>Molestias quasi quae omnis sed. Nostrum ex sit amet fuga. Quia harum adipisci officiis dolorem. Eaque quas occaecati id repellendus eos laboriosam.</p>', 'https://lorempixel.com/640/480/?38005', '2019-04-27 00:43:00', 1),
+(38, 'Je suis 1 article créé par moi-meme !', 'Je suis une description qui ne sert à rien !', 'http://lorempixel.com/400/200/sports/1/', '2019-09-17 16:24:07', 3),
+(40, 'Super titre', 'Je suis une description pour tester !', 'http://lorempixel.com/400/200/sports/3/', '2019-09-17 16:24:56', 3),
+(44, 'Poubelle article', 'Je suis un article de santé', 'http://lorempixel.com/400/200/sports/7/', '2019-09-18 10:01:06', 3);
 
 -- --------------------------------------------------------
 
@@ -181,7 +181,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `article`
 --
 ALTER TABLE `article`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT pour la table `category`
