@@ -22,20 +22,6 @@
         </div>
     </article>
 
-    <div>
-
-        <a href="{{ path('blog_edit', {'id': article.id}) }}" class="btn btn-primary">Modifier</a> <!-- Token pour Edit ajouté automatiquement, car c'est sur une page à éditer -->
-
-        {# <a href="{{ path('blog_delete', {'id': article.id}) }}" class="btn btn-danger">Effacer</a> #}
-
-        <!-- Ajout manuel d'un Token pour Delete : -->
-        <form method="post" action="{{ path('blog_delete', {id: article.id}) }}" onsubmit="return confirm('Effacer ?')">
-            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ article.id) }}">
-            <button class="btn btn-danger">Supprimer</button>
-        </form>
-
-    </div>
-
     <section id="commentaires">
         {% for comment in article.comments %}
             <div class="comment">
