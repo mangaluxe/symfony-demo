@@ -2,13 +2,15 @@
 
 namespace App\Controller;
 
-use App\Form\ArticleType; // Ajouté
+use App\Entity\Comment; // Ajouté pour commentaire
+use App\Form\CommentType; // Ajouté pour commentaire
 use App\Entity\Article; // Ajouté
+use App\Form\ArticleType; // Ajouté
 use Symfony\Component\Routing\Annotation\Route;
-use Doctrine\Common\Persistence\ObjectManager; // Ajouté pour utiliser injection de dépendance
-use App\Repository\ArticleRepository; // Ajouté pour utiliser injection de dépendance
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request; // Ajouté pour get, post...
+use App\Repository\ArticleRepository; // Ajouté pour utiliser injection de dépendance
+use Doctrine\Common\Persistence\ObjectManager; // Ajouté pour utiliser injection de dépendance
 
 
 class BlogController extends AbstractController
@@ -79,37 +81,74 @@ class BlogController extends AbstractController
 
 
 
+    // /**
+    //  * ======================================== Montrer 1 article (méthode 1) ========================================
+    //  * @Route("/blog/{id}", name="blog_show")
+    //  */
+    // public function show($id)
+    // {
+
+    //     // ------ Sans injection de dépendance -----
+
+    //     // $repo = $this->getDoctrine()->getRepository(Article::class);
+
+    //     // $article = $repo->find($id);
+
+    //     // ------ Avec injection de dépendance -----
+
+    //     $article = $this->repo->find($id);
+
+
+
+    //     return $this->render('blog/show.html.twig', [
+    //         'article' => $article // On va créer dans twig la variable article qui contiendra le contenu de la variable $article
+    //     ]);
+    // }
+
+
+
     /**
-     * ======================================== Montrer 1 article ========================================
+     * ======================================== Montrer 1 article (méthode 2) + Ajout commentaire ========================================
      * @Route("/blog/{id}", name="blog_show")
      */
-    public function show($id)
+    public function show(Article $article, Request $request)
+    // public function show(Article $article, Request $request, ObjectManager $em)
     {
+        $comment = new Comment();
 
-        // ------ Sans injection de dépendance -----
+        $form = $this->createForm(CommentType::class, $comment);
 
-        // $repo = $this->getDoctrine()->getRepository(Article::class);
+        $form->handleRequest($request);
 
-        // $article = $repo->find($id);
+        if ($form->isSubmitted() and $form->isValid()) {
 
-        // ------ Avec injection de dépendance -----
+            $comment->setCreatedAt(new \DateTime())
+                    ->setArticle($article); // Dire à quel article ce commentaire appartient
 
-        $article = $this->repo->find($id);
+            // ------ Sans injection de dépendance -----
+            
+            // $em = $this->getDoctrine()->getManager();
+            // $em->persist($comment);
+            // $em->flush();
 
+            // ------ Avec injection de dépendance -----
+
+            $this->em->persist($comment);
+            $this->em->flush();
+
+
+
+
+            return $this->redirectToRoute('blog_show', ['id' => $article->getId()]);
+
+        }
 
 
         return $this->render('blog/show.html.twig', [
-            'article' => $article // On va créer dans twig la variable article qui contiendra le contenu de la variable $article
+            'article' => $article,
+            'commentForm' => $form->createView()
         ]);
     }
-
-    // // Marche aussi :
-    // public function show(Article $article)
-    // {
-    //     return $this->render('blog/show.html.twig', [
-    //         'article' => $article
-    //     ]);
-    // }
 
 
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  mer. 18 sep. 2019 à 10:01
+-- Généré le :  mer. 18 sep. 2019 à 12:44
 -- Version du serveur :  10.4.6-MariaDB
 -- Version de PHP :  7.3.9
 
@@ -44,9 +44,9 @@ CREATE TABLE `article` (
 INSERT INTO `article` (`id`, `title`, `content`, `image`, `created_at`, `category_id`) VALUES
 (36, 'Titre corrigé', '<p>Facilis beatae quidem tenetur quidem et accusantium officia pariatur. Enim quasi et omnis molestiae maxime. Autem aspernatur voluptates rem nemo quod quos. Excepturi quia nisi at enim aut vel sint.</p><p>Odit sed voluptatem explicabo nulla natus est quaerat. Voluptatum at modi enim repellendus fugiat hic. Sunt perferendis ipsum impedit reprehenderit non.</p><p>Corrupti ea tempora sed quia aliquid. Cupiditate rerum eaque rerum possimus et sint optio. Libero ut amet mollitia officia quo animi quas deserunt. Fuga cumque tempore et et nihil eius odit.</p><p>Dolores voluptatem aut minima tempora officiis ex. Ad alias porro impedit rem rerum voluptas. Aut iste tempora nihil quidem. Iste fugit omnis voluptates ut sint.</p><p>Aliquid hic non eum non omnis odio. Deleniti explicabo tenetur quis minima enim minima voluptatem. Suscipit dolorem et sit eligendi.</p>', 'https://lorempixel.com/640/480/?40368', '2019-09-04 12:50:29', 3),
 (37, 'Je suis un titre créé', '<p>Possimus ut sed sit ut. Consequatur explicabo autem provident. Rerum doloremque omnis dolorum repellat commodi consequuntur. Dicta ullam necessitatibus sint ullam architecto temporibus assumenda.</p><p>Ut vitae laudantium quasi doloremque eum. Error velit consequatur necessitatibus excepturi. Sit ipsa ab ducimus soluta. Maxime voluptatum eos occaecati repellendus minima magnam rem.</p><p>Asperiores qui tenetur autem vitae ducimus. Earum hic deleniti harum error. Magnam sed eos quibusdam ad consequatur illum quo. Aut facilis consequuntur voluptatem illum.</p><p>Fuga eos qui repudiandae tempore voluptatum incidunt. Veritatis quis eos voluptas alias earum accusamus. Voluptas omnis impedit sunt et impedit. Fuga minima aliquid iusto quo est.</p><p>Molestias quasi quae omnis sed. Nostrum ex sit amet fuga. Quia harum adipisci officiis dolorem. Eaque quas occaecati id repellendus eos laboriosam.</p>', 'https://lorempixel.com/640/480/?38005', '2019-04-27 00:43:00', 1),
-(38, 'Je suis 1 article créé par moi-meme !', 'Je suis une description qui ne sert à rien !', 'http://lorempixel.com/400/200/sports/1/', '2019-09-17 16:24:07', 3),
-(40, 'Super titre', 'Je suis une description pour tester !', 'http://lorempixel.com/400/200/sports/3/', '2019-09-17 16:24:56', 3),
-(44, 'Poubelle article', 'Je suis un article de santé', 'http://lorempixel.com/400/200/sports/7/', '2019-09-18 10:01:06', 3);
+(38, 'Je suis 1 article créé par moi-meme !', 'Je suis une description qui ne sert à rien !', 'https://lorempixel.com/400/200/sports/1/', '2019-09-17 16:24:07', 3),
+(40, 'Super titre', 'Je suis une description pour tester !', 'https://lorempixel.com/400/200/sports/3/', '2019-09-17 16:24:56', 3),
+(44, 'Poubelle article', 'Je suis un article de santé', 'https://lorempixel.com/400/200/sports/7/', '2019-09-18 10:01:06', 3);
 
 -- --------------------------------------------------------
 
@@ -101,7 +101,8 @@ INSERT INTO `comment` (`id`, `article_id`, `author`, `content`, `created_at`) VA
 (78, 37, 'Lucy Grenier', '<p>Pariatur velit cum sequi id. Molestiae illo nemo veniam amet. Eum iste reprehenderit fugiat vero error labore. Fugiat tempora in animi occaecati dolor nulla repudiandae dignissimos.</p><p>Totam eum aut in quae. Voluptas harum nesciunt voluptates tempore. Sit perspiciatis totam reprehenderit voluptas delectus magni blanditiis.</p>', '2019-06-01 07:28:15'),
 (79, 37, 'Denise Vidal', '<p>Commodi impedit odio non magni unde. Occaecati velit similique aut non. Voluptas nobis impedit dolor aut.</p><p>Excepturi quis nihil repellat maxime eaque recusandae qui. Soluta ut similique id et consequatur. Velit eos illum quaerat est.</p>', '2019-04-29 16:52:30'),
 (80, 37, 'Élodie de Gaudin', '<p>Voluptatibus quam pariatur aperiam sint est qui commodi. Eius quod iure et in est quo vel. Culpa hic qui et voluptas sit quibusdam qui. Quibusdam quia in natus aspernatur eligendi. Recusandae et excepturi nostrum dolorum quae exercitationem nam libero.</p><p>Culpa cumque illo ipsum omnis error ipsam consequatur. Mollitia atque sapiente quisquam voluptatem aut praesentium hic. Recusandae sed ad incidunt incidunt sunt corporis fugiat expedita. Porro doloremque vel quia vel. Qui at et reprehenderit minus pariatur.</p>', '2019-06-05 03:59:31'),
-(81, 37, 'Nathalie Lemaitre', '<p>Quia et aliquam quo voluptatum. Cum non dolorum id provident quia a maiores velit. Quod sunt dolor eum quo et. Est nam voluptatibus nisi.</p><p>Necessitatibus doloribus quidem quibusdam aliquid modi nihil. Exercitationem et alias fugiat rerum. Voluptas amet aperiam similique sed eius.</p>', '2019-08-12 06:34:39');
+(81, 37, 'Nathalie Lemaitre', '<p>Quia et aliquam quo voluptatum. Cum non dolorum id provident quia a maiores velit. Quod sunt dolor eum quo et. Est nam voluptatibus nisi.</p><p>Necessitatibus doloribus quidem quibusdam aliquid modi nihil. Exercitationem et alias fugiat rerum. Voluptas amet aperiam similique sed eius.</p>', '2019-08-12 06:34:39'),
+(82, 36, 'Moi', 'Je teste un commentaire', '2019-09-18 12:30:07');
 
 -- --------------------------------------------------------
 
@@ -136,6 +137,14 @@ CREATE TABLE `user` (
   `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`id`, `email`, `username`, `password`) VALUES
+(1, '1234@1234.fr', '1234', '$2y$13$zR4Juuqs9FF4hwT/Q3hPs.ZRJD1qyA1Agh1bTnlOMHP3uQQDq86Vy'),
+(3, '123456@123456.fr', '123456', '$2y$13$yp8q3qmacSI2GgIpuVALEeQcdwoNW2HddmrvkvCEd3DlNMSaRukay');
 
 --
 -- Index pour les tables déchargées
@@ -193,13 +202,13 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT pour la table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Contraintes pour les tables déchargées

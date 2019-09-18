@@ -4,33 +4,35 @@
 
 {% block body %}
 
+    {# ========== Créer ou éditer un article ========== #}
+
     <h1>Créer ou éditer un article</h1>
 
     {{ form_start(formArticle) }}
 
-    <div class="form">
-        {{ form_row(formArticle.title, {'attr': {'placeholder': "Titre de l'article"}} ) }}
-    </div>
+        <div class="form">
+            {{ form_row(formArticle.title, {'attr': {'placeholder': "Titre de l'article"}} ) }}
+        </div>
 
-    <div class="form">
-        {{ form_row(formArticle.category) }}
-    </div>
+        <div class="form">
+            {{ form_row(formArticle.category) }}
+        </div>
 
-    <div class="form">
-        {{ form_row(formArticle.content, {'attr': {'placeholder': 'Description'}} ) }}
-    </div>
+        <div class="form">
+            {{ form_row(formArticle.content, {'attr': {'placeholder': 'Description'}} ) }}
+        </div>
 
-    <div class="form">
-        {{ form_row(formArticle.image, {'attr': {'placeholder': 'Image'}} ) }}
-    </div>
+        <div class="form">
+            {{ form_row(formArticle.image, {'attr': {'placeholder': 'Image'}} ) }}
+        </div>
 
-    <button type="submit" class="btn btn-success">
-        {% if editMode %}
-            Editer
-        {% else %}
-            Ajouter
-        {% endif %}
-    </button>
+        <button type="submit" class="btn btn-success">
+            {% if editMode %}
+                Editer
+            {% else %}
+                Ajouter
+            {% endif %}
+        </button>
 
     {{ form_end(formArticle) }}
 

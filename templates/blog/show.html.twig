@@ -4,16 +4,18 @@
 
 {% block body %}
 
-    {# Affiche un article #}
+    {# ========== Affiche un article ========== #}
 
     <articles>
-        <h2>{{ article.title }}</h2>
+        <h1 class="my-4">{{ article.title }}</h1>
 
         {% for message in app.flashes('success') %}
         <div class="alert alert-success">
             {{ message }}
         </div>
         {% endfor %}
+
+        {# Afficher l'article : #}
 
         <div class="metadata">Ecrit le {{ article.createdAt | date('d/m/Y à H:i:s') }} dans la catégorie {{ article.category.title }}</div>
         <div class="content">
@@ -22,7 +24,10 @@
         </div>
     </article>
 
+    {# Afficher les commentaires sur cet article : #}
+
     <section id="commentaires">
+        <h2 class="my-5">{{ article.comments | length }} commentaires :</h2>
         {% for comment in article.comments %}
             <div class="comment">
                 <div class="row">
@@ -30,11 +35,28 @@
                     {{ comment.author }} ({{ comment.createdAt | date('d/m/Y à H:i:s') }})
                     </div>
                     <div class="col">
-                    {{ comment.content | raw }})
+                    {{ comment.content | raw }}
                     </div>
                 </div>
             </div>
         {% endfor %}
+
+        {# Formulaire de commentaire : #}
+
+        {% if app.user %}
+        {{ form_start(commentForm) }}
+            <div class="form mt-5">
+                {{ form_row(commentForm.author, {'attr': {'placeholder': "Votre pseudo"}}) }}
+            </div>
+            <div class="form">
+                {{ form_row(commentForm.content, {'attr': {'placeholder': "Votre commentaire"}}) }}
+            </div>
+            <button type="submit" class="btn btn-success">Commenter</button>
+        {{ form_end(commentForm)}}
+        {% else %}
+            <p class="mt-5">Connectez-vous pour poster un commentaire !</p>
+        {% endif %}
+
     </section>
 
 {% endblock %}

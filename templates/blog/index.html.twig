@@ -4,14 +4,14 @@
 
 {% block body %}
 
-    {# Affiche liste des articles #}
+    {# ========== Affiche liste des articles ========== #}
 
     <section class="articles">
 
         {% for article in articles %}
         <articles>
-            <h2>{{ article.title }}</h2>
-            <div class="metadata">Ecrit le {{ article.createdAt | date('d/m/Y à H:i:s') }} dans la catégorie {{ article.category.title }}</div>
+            <h1 class="my-4">{{ article.title }}</h1>
+            <div class="metadata my-1">Ecrit le {{ article.createdAt | date('d/m/Y à H:i:s') }} dans la catégorie {{ article.category.title }}</div>
             <div class="content">
                 <img src="{{ article.image }}" alt="">
                 <p>{{ article.content | raw }}</p>

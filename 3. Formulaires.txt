@@ -26,3 +26,13 @@ On peut aller ensuite dans src\Form\RegistrationType.php pour ajouter :
 Ensuite aller dans src\Entity\User.php pour ajouter :
 
 public $confirm_password;
+
+===========================================
+Exemple avec RegistrationType :
+=======================
+
+php bin/console make:form
+
+Nom du formulaire. Exemple : CommentType
+Relier avec l'entité. Exemple : Comment
+
