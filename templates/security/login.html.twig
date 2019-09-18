@@ -7,9 +7,17 @@
     <h1>Connexion</h1>
 
     <form action="{{ path('security_login') }}" method="post">
-        Pseudo : <input type="text" name="_username">
-        Mot de passe : <input type="password" name="_password">
-        <button type="submit">Connexion</button>
+
+        <div class="form">
+            Pseudo : <input type="text" name="_username" placeholder="Pseudo"> <!--_username et _password sont les names pris en charge par Symfony pour la connexion même si on a mis des noms différents -->
+        </div>
+
+        <div class="form">
+            Mot de passe : <input type="password" name="_password" placeholder="Mot de passe">
+        </div>
+
+        <button type="submit" class="btn btn-success">Connexion</button>
+
     </form>
 
 {% endblock %}

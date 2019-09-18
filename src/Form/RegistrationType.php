@@ -6,6 +6,7 @@ use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType; // Ajouté
 
 class RegistrationType extends AbstractType
 {
@@ -16,10 +17,10 @@ class RegistrationType extends AbstractType
             ->add('username', null, [
                 'label' => 'Pseudo'
             ])
-            ->add('password', null, [
-                'label' => 'Mot de passe'
+            ->add('password', PasswordType::class, [
+                'label' => 'Mot de passe',
             ])
-            ->add('confirm_password', null, [
+            ->add('confirm_password', PasswordType::class, [
                 'label' => 'Répéter mot de passe'
             ])
         ;

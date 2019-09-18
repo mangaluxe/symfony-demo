@@ -1,35 +1,67 @@
-======================================================================================
+﻿======================================================================================
 Dans fichier src\Entity\Article.php :
 ===========================================
 
-use Symfony\Component\Validator\Constraints as Assert; // Ajout� pour validation de formulaire
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity; // Ajout� pour UniqueEntity
+use Symfony\Component\Validator\Constraints as Assert; // Ajouté pour validation de formulaire
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity; // Ajouté pour UniqueEntity
 
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
  * @UniqueEntity("title")
- * @UniqueEntity("username")
- * @UniqueEntity("email")
+ * @UniqueEntity(fields="username", message="Pseudo déjà pris")
+ * @UniqueEntity(fields="email", message="Email déjà pris")
  */
 class Article
 {
+
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      * @Assert\Length(
      *    min = 2,
      *    max = 50,
-     *    minMessage = "Minimum {{ limit }} caract�res !",
-     *    maxMessage = "Maximum {{ limit }} caract�res !"
+     *    minMessage = "Minimum {{ limit }} caractères !",
+     *    maxMessage = "Maximum {{ limit }} caractères !"
      * )
      */
     private $title;
     
     
+
+
+    /**
+     * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\Length(
+     *    min = 2,
+     *    max = 100,
+     *    minMessage = "Minimum {{ limit }} caractères !",
+     *    maxMessage = "Maximum {{ limit }} caractères !"
+     * )
+     */
+    private $username;
+    
+    
+    
+    
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=4, minMessage="Minimum {{ limit }} caractères !")
+     */
+    private $password;
+
+
+    /**
+     * @Assert\EqualTo(propertyPath="password", message="Erreur répétition de Mot de passe")
+     */
+    public $confirm_password;
+    
+    
+    
+    
     
     /**
      * @ORM\Column(type="text")
-     * @Assert\Length(min=10)
+     * @Assert\Length(min=10, minMessage="Minimum {{ limit }} caractères !")
      */
     private $content;
     
@@ -37,7 +69,7 @@ class Article
     
     /**
      * @Assert\Url(
-     *    message = "Cet url '{{ value }}' n�est pas valide !",
+     *    message = "Cet url '{{ value }}' n’est pas valide !",
      * )
      */
      private $url;

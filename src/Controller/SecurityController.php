@@ -4,18 +4,33 @@ namespace App\Controller;
 use App\Entity\User; // Ajouté
 use App\Form\RegistrationType; // Ajouté
 use Symfony\Component\HttpFoundation\Request;
-// use Doctrine\Common\Persistence\ObjectManager;// Ajouté
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;// Ajouté
+
+use Doctrine\Common\Persistence\ObjectManager; // Ajouté pour utiliser injection de dépendance
 
 class SecurityController extends AbstractController
 {
+
+    // ------ Contructeur pour Injection de dépendance : -----
+    private $repo;
+    private $em;
+
+    public function __construct(ObjectManager $em)
+    {
+        $this->em = $em;
+    }
+    // -----------
+
+
+
     /**
      * @Route("/inscription", name="security_registration")
      */
     public function registration(Request $request, UserPasswordEncoderInterface $encoder)
-    // public function registration(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder)
+    // public function registration(Request $request, ObjectManager $em, UserPasswordEncoderInterface $encoder)
     {
         $user = new User();
 
@@ -26,12 +41,39 @@ class SecurityController extends AbstractController
         if ($form->isSubmitted() and $form->isValid()) {
 
             $hash = $encoder->encodePassword($user, $user->getPassword());
-
             $user->setPassword($hash);
+        
+            // Ajouter ceci dans config\packages\security.yaml :
+            // security:
+            //     encoders:
+            //         App\Entity\User:
+            //             algorithm: bcrypt
 
-            $manager = $this->getDoctrine()->getManager(); // Mettre en commentaire si on utilise injection de dépendance ObjectManager
-            $manager->persist($user);
-            $manager->flush();
+            // Ajouter ceci dans src\Entity\User.php :
+            // use Symfony\Component\Security\Core\User\UserInterface; // Ajouté pour cryptage de mot de passe de l'utilisateur
+            // class User implements UserInterface
+
+            // public function getSalt() {}
+            // public function getRoles()
+            // {
+            //     return ['ROLE_USER'];
+            // }
+            // public function eraseCredentials() {}
+
+
+
+            // ------ Sans injection de dépendance -----
+
+            // $em = $this->getDoctrine()->getManager();
+            // $em->persist($user);
+            // $em->flush();
+
+            // ------ Avec injection de dépendance -----
+
+            $this->em->persist($user);
+            $this->em->flush();
+
+
 
             return $this->redirectToRoute('security_login');
         }

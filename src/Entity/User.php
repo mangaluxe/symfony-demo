@@ -3,16 +3,17 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert; // Ajouté pour validation de formulaire
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity; // Ajouté pour UniqueEntity
+use Symfony\Component\Validator\Constraints as Assert; // Ajouté pour validation de formulaire
+use Symfony\Component\Security\Core\User\UserInterface; // Ajouté pour cryptage de mot de passe de l'utilisateur
 
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
- * @UniqueEntity("username")
- * @UniqueEntity("email")
+ * @UniqueEntity(fields="username", message="Pseudo déjà pris")
+ * @UniqueEntity(fields="email", message="Email déjà pris")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -22,12 +23,12 @@ class User
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      * @Assert\Length(
      *    min = 2,
      *    max = 100,
@@ -39,15 +40,13 @@ class User
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(
-     *    min = 4,
-     *    max = 255,
-     *    minMessage = "Minimum {{ limit }} caractères !",
-     *    maxMessage = "Maximum {{ limit }} caractères !"
-     * )
+     * @Assert\Length(min=4, minMessage="Minimum {{ limit }} caractères !")
      */
     private $password;
 
+    /**
+     * @Assert\EqualTo(propertyPath="password", message="Erreur répétition de Mot de passe")
+     */
     public $confirm_password;
     
 
@@ -91,4 +90,23 @@ class User
 
         return $this;
     }
+
+
+
+    // ----- Ajouté pour cryptage de mot de passe : -----
+    public function getSalt()
+    {
+    }
+
+    public function getRoles()
+    {
+        return ['ROLE_USER'];
+    }
+
+    public function eraseCredentials()
+    {
+    }
+
+
+
 }
