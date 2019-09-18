@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  mer. 18 sep. 2019 à 17:06
--- Version du serveur :  10.4.6-MariaDB
--- Version de PHP :  7.3.9
+-- Généré le :  mer. 18 sep. 2019 à 23:31
+-- Version du serveur :  10.1.37-MariaDB
+-- Version de PHP :  7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -42,24 +42,12 @@ CREATE TABLE `article` (
 --
 
 INSERT INTO `article` (`id`, `title`, `content`, `image`, `created_at`, `category_id`) VALUES
-(36, 'Titre corrigé', '<p>Facilis beatae quidem tenetur quidem et accusantium officia pariatur. Enim quasi et omnis molestiae maxime. Autem aspernatur voluptates rem nemo quod quos. Excepturi quia nisi at enim aut vel sint.</p><p>Odit sed voluptatem explicabo nulla natus est quaerat. Voluptatum at modi enim repellendus fugiat hic. Sunt perferendis ipsum impedit reprehenderit non.</p><p>Corrupti ea tempora sed quia aliquid. Cupiditate rerum eaque rerum possimus et sint optio. Libero ut amet mollitia officia quo animi quas deserunt. Fuga cumque tempore et et nihil eius odit.</p><p>Dolores voluptatem aut minima tempora officiis ex. Ad alias porro impedit rem rerum voluptas. Aut iste tempora nihil quidem. Iste fugit omnis voluptates ut sint.</p><p>Aliquid hic non eum non omnis odio. Deleniti explicabo tenetur quis minima enim minima voluptatem. Suscipit dolorem et sit eligendi.</p>', 'https://lorempixel.com/640/480/?40368', '2019-09-04 12:50:29', 3),
-(37, 'Je suis un titre créé', '<p>Possimus ut sed sit ut. Consequatur explicabo autem provident. Rerum doloremque omnis dolorum repellat commodi consequuntur. Dicta ullam necessitatibus sint ullam architecto temporibus assumenda.</p><p>Ut vitae laudantium quasi doloremque eum. Error velit consequatur necessitatibus excepturi. Sit ipsa ab ducimus soluta. Maxime voluptatum eos occaecati repellendus minima magnam rem.</p><p>Asperiores qui tenetur autem vitae ducimus. Earum hic deleniti harum error. Magnam sed eos quibusdam ad consequatur illum quo. Aut facilis consequuntur voluptatem illum.</p><p>Fuga eos qui repudiandae tempore voluptatum incidunt. Veritatis quis eos voluptas alias earum accusamus. Voluptas omnis impedit sunt et impedit. Fuga minima aliquid iusto quo est.</p><p>Molestias quasi quae omnis sed. Nostrum ex sit amet fuga. Quia harum adipisci officiis dolorem. Eaque quas occaecati id repellendus eos laboriosam.</p>', 'https://lorempixel.com/640/480/?38005', '2019-04-27 00:43:00', 1),
-(38, 'Je suis 1 article créé par moi-meme !', 'Je suis une description qui ne sert à rien !', 'https://lorempixel.com/400/200/sports/1/', '2019-09-17 16:24:07', 3),
-(40, 'Super titre', 'Je suis une description pour tester !', 'https://lorempixel.com/400/200/sports/3/', '2019-09-17 16:24:56', 3),
-(44, 'Poubelle article', 'Je suis un article de santé', 'https://lorempixel.com/400/200/sports/7/', '2019-09-18 10:01:06', 3),
-(45, 'Un arti cle', 'Rien à écrire', 'https://lorempixel.com/400/200/sports/8/', '2019-09-18 13:32:45', 1),
-(46, 'Un autre article', 'Test test et test...', 'https://lorempixel.com/400/200/sports/7/', '2019-09-18 13:33:56', 2),
-(47, '1234', 'Minimum 10 caractères !Minimum 10 caractères !', 'https://lorempixel.com/400/200/sports/3/', '2019-09-18 13:34:25', 1),
-(48, 'Minimum 10 caractères !', 'Minimum 10 caractères !Minimum 10 caractères !', 'https://lorempixel.com/400/200/sports/2/', '2019-09-18 13:35:27', 1),
-(49, 'Test', 'test https://lorempixel.com/400/200/sports/1/', 'https://lorempixel.com/400/200/sports/1/', '2019-09-18 13:35:44', 1),
-(50, 'Test 2', 'test https://lorempixel.com/400/200/sports/1/', 'https://lorempixel.com/400/200/sports/1/', '2019-09-18 13:35:51', 1),
-(51, 'Test 3', 'test https://lorempixel.com/400/200/sports/1/', 'https://lorempixel.com/400/200/sports/1/', '2019-09-18 13:35:57', 1),
-(52, 'Test 4', 'test https://lorempixel.com/400/200/sports/1/', 'https://lorempixel.com/400/200/sports/1/', '2019-09-18 13:36:03', 3),
-(53, 'azerty', 'azertyui i i i ik i kt k', 'http://thth.hhq', '2019-09-18 15:25:00', 3),
-(54, 'ssssss', 'ssssssssssssssssssssssssssssss', 'http://s.ss', '2019-09-18 16:10:22', 1),
-(55, 'abc', 'sssssssssssssssssssssssssssssss', 'http://ss.ss', '2019-09-18 16:12:54', 1),
-(56, 'qwqw', 'qwqwqqq q qw qq qw q', 'http://qwqwqwq.qq', '2019-09-18 16:59:52', 1),
-(57, 'Le dernier avant de partir', 'Le dernier avant de partir Le dernier avant de partir Le dernier avant de partir !', 'https://lorempixel.com/640/480/?40368', '2019-09-18 17:02:48', 1);
+(36, 'Architecto recusandae velit veritatis aliquam quaerat possimus enim odit.', '<p>Facilis beatae quidem tenetur quidem et accusantium officia pariatur. Enim quasi et omnis molestiae maxime. Autem aspernatur voluptates rem nemo quod quos. Excepturi quia nisi at enim aut vel sint.</p><p>Odit sed voluptatem explicabo nulla natus est quaerat. Voluptatum at modi enim repellendus fugiat hic. Sunt perferendis ipsum impedit reprehenderit non.</p><p>Corrupti ea tempora sed quia aliquid. Cupiditate rerum eaque rerum possimus et sint optio. Libero ut amet mollitia officia quo animi quas deserunt. Fuga cumque tempore et et nihil eius odit.</p><p>Dolores voluptatem aut minima tempora officiis ex. Ad alias porro impedit rem rerum voluptas. Aut iste tempora nihil quidem. Iste fugit omnis voluptates ut sint.</p><p>Aliquid hic non eum non omnis odio. Deleniti explicabo tenetur quis minima enim minima voluptatem. Suscipit dolorem et sit eligendi.</p>', 'https://lorempixel.com/640/480/?40368', '2019-09-04 12:50:29', 3),
+(37, 'Autem omnis ut et beatae perferendis qui enim fuga.', '<p>Possimus ut sed sit ut. Consequatur explicabo autem provident. Rerum doloremque omnis dolorum repellat commodi consequuntur. Dicta ullam necessitatibus sint ullam architecto temporibus assumenda.</p><p>Ut vitae laudantium quasi doloremque eum. Error velit consequatur necessitatibus excepturi. Sit ipsa ab ducimus soluta. Maxime voluptatum eos occaecati repellendus minima magnam rem.</p><p>Asperiores qui tenetur autem vitae ducimus. Earum hic deleniti harum error. Magnam sed eos quibusdam ad consequatur illum quo. Aut facilis consequuntur voluptatem illum.</p><p>Fuga eos qui repudiandae tempore voluptatum incidunt. Veritatis quis eos voluptas alias earum accusamus. Voluptas omnis impedit sunt et impedit. Fuga minima aliquid iusto quo est.</p><p>Molestias quasi quae omnis sed. Nostrum ex sit amet fuga. Quia harum adipisci officiis dolorem. Eaque quas occaecati id repellendus eos laboriosam.</p>', 'https://lorempixel.com/640/480/?38005', '2019-04-27 00:43:00', 3),
+(38, 'Je suis un article créé par moi', 'Je suis une description qui ne sert à rien !', 'http://lorempixel.com/400/200/sports/1/', '2019-09-17 16:24:07', 3),
+(39, 'Titre nulle', 'Rien à dire et toi ?', 'http://lorempixel.com/400/200/sports/2/', '2019-09-17 16:24:25', 1),
+(40, 'Super titre', 'Je suis une description pour tester !', 'http://lorempixel.com/400/200/sports/3/', '2019-09-17 16:24:56', 3),
+(41, '1234', '1234eeeeeeeeeeeeeeeeeeeeee', 'http://ee.ee', '2019-09-18 23:30:54', 1);
 
 -- --------------------------------------------------------
 
@@ -70,7 +58,7 @@ INSERT INTO `article` (`id`, `title`, `content`, `image`, `created_at`, `categor
 CREATE TABLE `category` (
   `id` int(11) NOT NULL,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `description` longtext COLLATE utf8mb4_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -114,14 +102,7 @@ INSERT INTO `comment` (`id`, `article_id`, `author`, `content`, `created_at`) VA
 (78, 37, 'Lucy Grenier', '<p>Pariatur velit cum sequi id. Molestiae illo nemo veniam amet. Eum iste reprehenderit fugiat vero error labore. Fugiat tempora in animi occaecati dolor nulla repudiandae dignissimos.</p><p>Totam eum aut in quae. Voluptas harum nesciunt voluptates tempore. Sit perspiciatis totam reprehenderit voluptas delectus magni blanditiis.</p>', '2019-06-01 07:28:15'),
 (79, 37, 'Denise Vidal', '<p>Commodi impedit odio non magni unde. Occaecati velit similique aut non. Voluptas nobis impedit dolor aut.</p><p>Excepturi quis nihil repellat maxime eaque recusandae qui. Soluta ut similique id et consequatur. Velit eos illum quaerat est.</p>', '2019-04-29 16:52:30'),
 (80, 37, 'Élodie de Gaudin', '<p>Voluptatibus quam pariatur aperiam sint est qui commodi. Eius quod iure et in est quo vel. Culpa hic qui et voluptas sit quibusdam qui. Quibusdam quia in natus aspernatur eligendi. Recusandae et excepturi nostrum dolorum quae exercitationem nam libero.</p><p>Culpa cumque illo ipsum omnis error ipsam consequatur. Mollitia atque sapiente quisquam voluptatem aut praesentium hic. Recusandae sed ad incidunt incidunt sunt corporis fugiat expedita. Porro doloremque vel quia vel. Qui at et reprehenderit minus pariatur.</p>', '2019-06-05 03:59:31'),
-(81, 37, 'Nathalie Lemaitre', '<p>Quia et aliquam quo voluptatum. Cum non dolorum id provident quia a maiores velit. Quod sunt dolor eum quo et. Est nam voluptatibus nisi.</p><p>Necessitatibus doloribus quidem quibusdam aliquid modi nihil. Exercitationem et alias fugiat rerum. Voluptas amet aperiam similique sed eius.</p>', '2019-08-12 06:34:39'),
-(82, 36, 'Moi', 'Je teste un commentaire', '2019-09-18 12:30:07'),
-(83, 45, 'test', 'test', '2019-09-18 13:32:52'),
-(84, 45, 'moi', 'rien à dire!', '2019-09-18 13:33:07'),
-(85, 36, 'eeee', 'reee e e', '2019-09-18 15:41:31'),
-(86, 36, 'sss', 'zzz', '2019-09-18 15:42:40'),
-(87, 36, 's', 's', '2019-09-18 15:44:58'),
-(88, 57, 'test', 'test', '2019-09-18 17:02:54');
+(81, 37, 'Nathalie Lemaitre', '<p>Quia et aliquam quo voluptatum. Cum non dolorum id provident quia a maiores velit. Quod sunt dolor eum quo et. Est nam voluptatibus nisi.</p><p>Necessitatibus doloribus quidem quibusdam aliquid modi nihil. Exercitationem et alias fugiat rerum. Voluptas amet aperiam similique sed eius.</p>', '2019-08-12 06:34:39');
 
 -- --------------------------------------------------------
 
@@ -142,8 +123,7 @@ INSERT INTO `migration_versions` (`version`, `executed_at`) VALUES
 ('20190916125018', '2019-09-16 12:52:20'),
 ('20190917120014', '2019-09-17 12:03:46'),
 ('20190917121411', '2019-09-17 12:15:02'),
-('20190917143700', '2019-09-17 14:37:44'),
-('20190918132211', '2019-09-18 13:22:19');
+('20190917143700', '2019-09-18 21:29:38');
 
 -- --------------------------------------------------------
 
@@ -164,9 +144,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `email`, `username`, `password`, `roles`) VALUES
-(1, '1234@1234.fr', '1234', '$2y$13$zR4Juuqs9FF4hwT/Q3hPs.ZRJD1qyA1Agh1bTnlOMHP3uQQDq86Vy', 'a:1:{i:0;s:10:\"ROLE_ADMIN\";}'),
-(3, '123456@123456.fr', '123456', '$2y$13$yp8q3qmacSI2GgIpuVALEeQcdwoNW2HddmrvkvCEd3DlNMSaRukay', 'a:1:{i:0;s:9:\"ROLE_USER\";}'),
-(4, 'azerty@azer.ty', 'azerty', '$2y$13$0/1twtoHFdJUOhsrNSLaVO1PXogOU4lowwBPoKrYp4YJa.bhTEkLS', NULL);
+(1, '1234@1234.fr', '1234', '$2y$13$dXuMAkbaT6lDMq1bogbFNe7eiPLKNpifeymLBhEKZEhC.te.GjzV2', NULL);
 
 --
 -- Index pour les tables déchargées
@@ -202,9 +180,7 @@ ALTER TABLE `migration_versions`
 -- Index pour la table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `UNIQ_8D93D649E7927C74` (`email`),
-  ADD UNIQUE KEY `UNIQ_8D93D649F85E0677` (`username`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -214,7 +190,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `article`
 --
 ALTER TABLE `article`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT pour la table `category`
@@ -226,13 +202,13 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT pour la table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Contraintes pour les tables déchargées
