@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  mer. 18 sep. 2019 à 12:44
+-- Généré le :  mer. 18 sep. 2019 à 17:06
 -- Version du serveur :  10.4.6-MariaDB
 -- Version de PHP :  7.3.9
 
@@ -46,7 +46,20 @@ INSERT INTO `article` (`id`, `title`, `content`, `image`, `created_at`, `categor
 (37, 'Je suis un titre créé', '<p>Possimus ut sed sit ut. Consequatur explicabo autem provident. Rerum doloremque omnis dolorum repellat commodi consequuntur. Dicta ullam necessitatibus sint ullam architecto temporibus assumenda.</p><p>Ut vitae laudantium quasi doloremque eum. Error velit consequatur necessitatibus excepturi. Sit ipsa ab ducimus soluta. Maxime voluptatum eos occaecati repellendus minima magnam rem.</p><p>Asperiores qui tenetur autem vitae ducimus. Earum hic deleniti harum error. Magnam sed eos quibusdam ad consequatur illum quo. Aut facilis consequuntur voluptatem illum.</p><p>Fuga eos qui repudiandae tempore voluptatum incidunt. Veritatis quis eos voluptas alias earum accusamus. Voluptas omnis impedit sunt et impedit. Fuga minima aliquid iusto quo est.</p><p>Molestias quasi quae omnis sed. Nostrum ex sit amet fuga. Quia harum adipisci officiis dolorem. Eaque quas occaecati id repellendus eos laboriosam.</p>', 'https://lorempixel.com/640/480/?38005', '2019-04-27 00:43:00', 1),
 (38, 'Je suis 1 article créé par moi-meme !', 'Je suis une description qui ne sert à rien !', 'https://lorempixel.com/400/200/sports/1/', '2019-09-17 16:24:07', 3),
 (40, 'Super titre', 'Je suis une description pour tester !', 'https://lorempixel.com/400/200/sports/3/', '2019-09-17 16:24:56', 3),
-(44, 'Poubelle article', 'Je suis un article de santé', 'https://lorempixel.com/400/200/sports/7/', '2019-09-18 10:01:06', 3);
+(44, 'Poubelle article', 'Je suis un article de santé', 'https://lorempixel.com/400/200/sports/7/', '2019-09-18 10:01:06', 3),
+(45, 'Un arti cle', 'Rien à écrire', 'https://lorempixel.com/400/200/sports/8/', '2019-09-18 13:32:45', 1),
+(46, 'Un autre article', 'Test test et test...', 'https://lorempixel.com/400/200/sports/7/', '2019-09-18 13:33:56', 2),
+(47, '1234', 'Minimum 10 caractères !Minimum 10 caractères !', 'https://lorempixel.com/400/200/sports/3/', '2019-09-18 13:34:25', 1),
+(48, 'Minimum 10 caractères !', 'Minimum 10 caractères !Minimum 10 caractères !', 'https://lorempixel.com/400/200/sports/2/', '2019-09-18 13:35:27', 1),
+(49, 'Test', 'test https://lorempixel.com/400/200/sports/1/', 'https://lorempixel.com/400/200/sports/1/', '2019-09-18 13:35:44', 1),
+(50, 'Test 2', 'test https://lorempixel.com/400/200/sports/1/', 'https://lorempixel.com/400/200/sports/1/', '2019-09-18 13:35:51', 1),
+(51, 'Test 3', 'test https://lorempixel.com/400/200/sports/1/', 'https://lorempixel.com/400/200/sports/1/', '2019-09-18 13:35:57', 1),
+(52, 'Test 4', 'test https://lorempixel.com/400/200/sports/1/', 'https://lorempixel.com/400/200/sports/1/', '2019-09-18 13:36:03', 3),
+(53, 'azerty', 'azertyui i i i ik i kt k', 'http://thth.hhq', '2019-09-18 15:25:00', 3),
+(54, 'ssssss', 'ssssssssssssssssssssssssssssss', 'http://s.ss', '2019-09-18 16:10:22', 1),
+(55, 'abc', 'sssssssssssssssssssssssssssssss', 'http://ss.ss', '2019-09-18 16:12:54', 1),
+(56, 'qwqw', 'qwqwqqq q qw qq qw q', 'http://qwqwqwq.qq', '2019-09-18 16:59:52', 1),
+(57, 'Le dernier avant de partir', 'Le dernier avant de partir Le dernier avant de partir Le dernier avant de partir !', 'https://lorempixel.com/640/480/?40368', '2019-09-18 17:02:48', 1);
 
 -- --------------------------------------------------------
 
@@ -102,7 +115,13 @@ INSERT INTO `comment` (`id`, `article_id`, `author`, `content`, `created_at`) VA
 (79, 37, 'Denise Vidal', '<p>Commodi impedit odio non magni unde. Occaecati velit similique aut non. Voluptas nobis impedit dolor aut.</p><p>Excepturi quis nihil repellat maxime eaque recusandae qui. Soluta ut similique id et consequatur. Velit eos illum quaerat est.</p>', '2019-04-29 16:52:30'),
 (80, 37, 'Élodie de Gaudin', '<p>Voluptatibus quam pariatur aperiam sint est qui commodi. Eius quod iure et in est quo vel. Culpa hic qui et voluptas sit quibusdam qui. Quibusdam quia in natus aspernatur eligendi. Recusandae et excepturi nostrum dolorum quae exercitationem nam libero.</p><p>Culpa cumque illo ipsum omnis error ipsam consequatur. Mollitia atque sapiente quisquam voluptatem aut praesentium hic. Recusandae sed ad incidunt incidunt sunt corporis fugiat expedita. Porro doloremque vel quia vel. Qui at et reprehenderit minus pariatur.</p>', '2019-06-05 03:59:31'),
 (81, 37, 'Nathalie Lemaitre', '<p>Quia et aliquam quo voluptatum. Cum non dolorum id provident quia a maiores velit. Quod sunt dolor eum quo et. Est nam voluptatibus nisi.</p><p>Necessitatibus doloribus quidem quibusdam aliquid modi nihil. Exercitationem et alias fugiat rerum. Voluptas amet aperiam similique sed eius.</p>', '2019-08-12 06:34:39'),
-(82, 36, 'Moi', 'Je teste un commentaire', '2019-09-18 12:30:07');
+(82, 36, 'Moi', 'Je teste un commentaire', '2019-09-18 12:30:07'),
+(83, 45, 'test', 'test', '2019-09-18 13:32:52'),
+(84, 45, 'moi', 'rien à dire!', '2019-09-18 13:33:07'),
+(85, 36, 'eeee', 'reee e e', '2019-09-18 15:41:31'),
+(86, 36, 'sss', 'zzz', '2019-09-18 15:42:40'),
+(87, 36, 's', 's', '2019-09-18 15:44:58'),
+(88, 57, 'test', 'test', '2019-09-18 17:02:54');
 
 -- --------------------------------------------------------
 
@@ -123,7 +142,8 @@ INSERT INTO `migration_versions` (`version`, `executed_at`) VALUES
 ('20190916125018', '2019-09-16 12:52:20'),
 ('20190917120014', '2019-09-17 12:03:46'),
 ('20190917121411', '2019-09-17 12:15:02'),
-('20190917143700', '2019-09-17 14:37:44');
+('20190917143700', '2019-09-17 14:37:44'),
+('20190918132211', '2019-09-18 13:22:19');
 
 -- --------------------------------------------------------
 
@@ -135,16 +155,18 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `roles` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`id`, `email`, `username`, `password`) VALUES
-(1, '1234@1234.fr', '1234', '$2y$13$zR4Juuqs9FF4hwT/Q3hPs.ZRJD1qyA1Agh1bTnlOMHP3uQQDq86Vy'),
-(3, '123456@123456.fr', '123456', '$2y$13$yp8q3qmacSI2GgIpuVALEeQcdwoNW2HddmrvkvCEd3DlNMSaRukay');
+INSERT INTO `user` (`id`, `email`, `username`, `password`, `roles`) VALUES
+(1, '1234@1234.fr', '1234', '$2y$13$zR4Juuqs9FF4hwT/Q3hPs.ZRJD1qyA1Agh1bTnlOMHP3uQQDq86Vy', 'a:1:{i:0;s:10:\"ROLE_ADMIN\";}'),
+(3, '123456@123456.fr', '123456', '$2y$13$yp8q3qmacSI2GgIpuVALEeQcdwoNW2HddmrvkvCEd3DlNMSaRukay', 'a:1:{i:0;s:9:\"ROLE_USER\";}'),
+(4, 'azerty@azer.ty', 'azerty', '$2y$13$0/1twtoHFdJUOhsrNSLaVO1PXogOU4lowwBPoKrYp4YJa.bhTEkLS', NULL);
 
 --
 -- Index pour les tables déchargées
@@ -180,7 +202,9 @@ ALTER TABLE `migration_versions`
 -- Index pour la table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNIQ_8D93D649E7927C74` (`email`),
+  ADD UNIQUE KEY `UNIQ_8D93D649F85E0677` (`username`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -190,7 +214,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `article`
 --
 ALTER TABLE `article`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT pour la table `category`
@@ -202,13 +226,13 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT pour la table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Contraintes pour les tables déchargées

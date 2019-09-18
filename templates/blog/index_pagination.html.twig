@@ -4,7 +4,21 @@
 
 {% block body %}
 
-    {# ========== Affiche liste des articles (tout sur une page) ========== #}
+    {# ========== Affiche liste des articles avec pagination ========== #}
+
+    {# Pagination #}
+    <div class="center mt-5">
+        <div class="pagination">
+            <a class="{% if page == 1 %}disabled{% endif %}" href="{{ path('blog_pagination', {'page': page - 1}) }}"> « </a>
+
+            {% for i in 1..pages %}
+            <a class="page-item {% if page == i %}active{% endif %}" href="{{ path('blog_pagination', {'page': i}) }}">{{ i }}</a>
+
+            {% endfor %}
+            <a class="page-item {% if page == pages %}disabled{% endif %}" href="{{ path('blog_pagination', {'page': page + 1}) }}"> » </a>
+        </div>
+    </div>
+
 
     <section class="articles">
 

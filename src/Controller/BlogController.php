@@ -49,10 +49,10 @@ class BlogController extends AbstractController
 
 
     /**
-     * ======================================== Liste des articles ========================================
-     * @Route("/blog", name="blog")
+     * ======================================== Liste des articles (Tout sur une page)========================================
+     * @Route("/blog", name="blog_all")
      */
-    public function index()
+    public function index_all()
     {
 
         // ------ Sans injection de dépendance -----
@@ -73,6 +73,73 @@ class BlogController extends AbstractController
 
         return $this->render('blog/index.html.twig', [
             'articles' => $articles, // On va créer dans twig la variable articles qui contiendra le contenu de la variable $articles
+        ]);
+    }
+
+
+
+
+
+
+    /**
+    * ======================================== Liste des articles avec pagination ========================================
+    * @Route("/blog/page/{page<\d+>?1}", name="blog_pagination")
+    * // Regex : d pour nombre, + pour un ou plusieurs, ? pour optionnel, 1 pour valeur par défaut
+    */
+    public function index_pagination($page = 1)
+    {
+        // ------ Sans injection de dépendance -----
+
+        // $repo = $this->getDoctrine()->getRepository(Article::class); // Recup données dans BDD
+    
+        // $limit = 5;
+        // $start = $page * $limit - $limit;
+        // // 1*10 - 10 = 0
+        // // 2*10 - 10 = 10
+        // $total = count($repo->findAll());
+        // $pages = ceil($total / $limit); // ceil arrondit au nb supérieur
+
+        // return $this->render('blog/index_pagination.html.twig', [
+        //     'articles' => $repo->findBy([], [], $limit, $start),
+        //     'pages' => $pages,
+        //     'page' => $page
+
+        // ]);
+
+        // ------ Avec injection de dépendance -----
+
+        $limit = 5;
+        $start = $page * $limit - $limit;
+        // 1*10 - 10 = 0
+        // 2*10 - 10 = 10
+        $total = count($this->repo->findAll());
+        $pages = ceil($total / $limit); // ceil arrondit au nb supérieur
+
+        return $this->render('blog/index_pagination.html.twig', [
+            'articles' => $this->repo->findBy([], [], $limit, $start),
+            'pages' => $pages,
+            'page' => $page
+
+        ]);
+
+        
+    }
+
+
+
+
+
+    /**
+    * ======================================== Afficher les 5 premiers articles ========================================
+    * @Route("/blog/page1/", name="blog_page1")
+    */
+    public function index_page1()
+    {
+        // Avec injection de dépendance :
+        $articles = $this->repo->findBy([], [], 5, 0); // Sans critère de recherche, ordre par défaut, par 20 articles, à partir de l'index 0
+
+        return $this->render('blog/index.html.twig', [
+            'articles' => $articles
         ]);
     }
 
