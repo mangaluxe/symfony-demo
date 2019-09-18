@@ -83,6 +83,15 @@ class Article
     
     
     /**
+     * @ORM\Column(type="text")
+     * @Assert\NotBlank(message ="Mettez un commentaire !")
+     */
+    private $content;
+
+
+
+    
+    /**
      * @Assert\Url(
      *    message = "Cet url '{{ value }}' n’est pas valide !",
      * )

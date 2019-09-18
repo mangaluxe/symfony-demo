@@ -48,6 +48,11 @@ class User implements UserInterface
      * @Assert\EqualTo(propertyPath="password", message="Erreur répétition de Mot de passe")
      */
     public $confirm_password;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $roles;
     
 
     public function getId(): ?int
@@ -98,14 +103,32 @@ class User implements UserInterface
     {
     }
 
+    public function eraseCredentials()
+    {
+    }
+
     public function getRoles()
     {
         return ['ROLE_USER'];
     }
 
-    public function eraseCredentials()
+    public function setRoles(?string $roles): self
     {
+        $this->roles = $roles;
+        return $this;
     }
+
+
+    // public function getRoles(): ?array
+    // {
+    //     return $this->roles;
+    // }
+
+    // public function setRoles(array $roles): self
+    // {
+    //     $this->roles = $roles;
+    //     return $this;
+    // }
 
 
 
