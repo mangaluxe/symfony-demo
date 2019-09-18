@@ -67,6 +67,21 @@ class Article
     
     
     
+    
+    /**
+     * @ORM\Column(type="integer")
+     * @Assert\Range(
+     *      min = 10,
+     *      max = 1000,
+     *      minMessage = "Interdit de vendre un bien de moins de {{ limit }}m² !",
+     *      maxMessage = "Un bien de {{ limit }}m² n'existe pas !"
+     * )
+     */
+    private $surface;
+    
+    
+    
+    
     /**
      * @Assert\Url(
      *    message = "Cet url '{{ value }}' n’est pas valide !",

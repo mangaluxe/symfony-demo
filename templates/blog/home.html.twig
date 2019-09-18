@@ -11,7 +11,7 @@
     <p>Votre message : {{ message1 }}</p>
 
     {% if age >= 18 %}
-    <p>Bienvenue ! Vous avez {{ age }} ans, vous pouvez entrer !</p>
+        <p>Bienvenue ! Vous avez {{ age }} ans, vous pouvez entrer !</p>
     {% elseif age > 15 and age < 18 %}
         <p>Interdit aux mineurs ! Vous avez seulement {{ age }} ans</p>
     {% elseif age <= 15 %}

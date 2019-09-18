@@ -8,20 +8,20 @@
 
     {{ form_start(form) }}
 
-    <div class="form">
-        {{ form_row(form.username, {'attr': {'placeholder': "Votre pseudo"}} ) }}
-    </div>
-    <div class="form">
-        {{ form_row(form.email, {'label': "Adresse email", 'attr': {'placeholder': "Votre adresse email"}} ) }}
-    </div>
-    <div class="form">
-        {{ form_row(form.password, {'attr': {'placeholder': "Mot de passe"}} ) }}
-    </div>
-    <div class="form">
-        {{ form_row(form.confirm_password, {'attr': {'placeholder': "Répéter mot de passe"}} ) }}
-    </div>
+        <div class="form">
+            {{ form_row(form.username, {'attr': {'placeholder': "Votre pseudo"}} ) }}
+        </div>
+        <div class="form">
+            {{ form_row(form.email, {'label': "Adresse email", 'attr': {'placeholder': "Votre adresse email"}} ) }}
+        </div>
+        <div class="form">
+            {{ form_row(form.password, {'attr': {'placeholder': "Mot de passe"}} ) }}
+        </div>
+        <div class="form">
+            {{ form_row(form.confirm_password, {'attr': {'placeholder': "Répéter mot de passe"}} ) }}
+        </div>
 
-    <button type="submit" class="btn btn-success">Envoyer</button>
+        <button type="submit" class="btn btn-success">Envoyer</button>
 
     {{ form_end(form) }}
 
