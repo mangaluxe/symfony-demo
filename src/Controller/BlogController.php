@@ -95,7 +95,7 @@ class BlogController extends AbstractController
         // $limit = 5;
         // $start = $page * $limit - $limit;
         // // 1*10 - 10 = 0
-        // // 2*10 - 10 = 10
+        // // 2*10 - 10 = 10 // Explique pourquoi $start = $page * $limit - $limit;
         // $total = count($repo->findAll());
         // $pages = ceil($total / $limit); // ceil arrondit au nb supérieur
 
@@ -111,7 +111,7 @@ class BlogController extends AbstractController
         $limit = 5;
         $start = $page * $limit - $limit;
         // 1*10 - 10 = 0
-        // 2*10 - 10 = 10
+        // 2*10 - 10 = 10 // Explique pourquoi $start = $page * $limit - $limit;
         $total = count($this->repo->findAll());
         $pages = ceil($total / $limit); // ceil arrondit au nb supérieur
 
@@ -122,7 +122,6 @@ class BlogController extends AbstractController
 
         ]);
 
-        
     }
 
 

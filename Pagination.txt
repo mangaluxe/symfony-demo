@@ -1,0 +1,107 @@
+﻿===============================================
+Dans controller :
+===============================================
+
+    /**
+    * ======================================== Liste des articles avec pagination ========================================
+    * @Route("/blog/page/{page<\d+>?1}", name="blog_pagination")
+    * // Regex : d pour nombre, + pour un ou plusieurs, ? pour optionnel, 1 pour valeur par défaut
+    */
+    public function index_pagination($page = 1)
+    {
+        // ------ Sans injection de dépendance -----
+
+        // $repo = $this->getDoctrine()->getRepository(Article::class); // Recup données dans BDD
+    
+        // $limit = 10;
+        // $start = $page * $limit - $limit;
+        // // 1*10 - 10 = 0
+        // // 2*10 - 10 = 10 // Explique pourquoi $start = $page * $limit - $limit;
+        // $total = count($repo->findAll());
+        // $pages = ceil($total / $limit); // ceil arrondit au nb supérieur
+
+        // return $this->render('blog/index_pagination.html.twig', [
+        //     'articles' => $repo->findBy([], [], $limit, $start),
+        //     'pages' => $pages,
+        //     'page' => $page
+
+        // ]);
+
+        // ------ Avec injection de dépendance -----
+
+        $limit = 10;
+        $start = $page * $limit - $limit;
+        // 1*10 - 10 = 0
+        // 2*10 - 10 = 10 // Explique pourquoi $start = $page * $limit - $limit;
+        $total = count($this->repo->findAll());
+        $pages = ceil($total / $limit); // ceil arrondit au nb supérieur
+
+        return $this->render('blog/index_pagination.html.twig', [
+            'articles' => $this->repo->findBy([], [], $limit, $start),
+            'pages' => $pages,
+            'page' => $page
+
+        ]);
+
+    }
+
+===============================================
+Dans twig :
+===============================================
+
+    {# Pagination #}
+    <div class="center">
+        <div class="pagination">
+            <a class="{% if page == 1 %}disabled{% endif %}" href="{{ path('blog_pagination', {'page': page - 1}) }}"> « </a>
+
+            {% for i in 1..pages %}
+            <a class="page-item {% if page == i %}active{% endif %}" href="{{ path('blog_pagination', {'page': i}) }}">{{ i }}</a>
+
+            {% endfor %}
+            <a class="page-item {% if page == pages %}disabled{% endif %}" href="{{ path('blog_pagination', {'page': page + 1}) }}"> » </a>
+        </div>
+    </div>
+    
+===============================================
+Dans css :
+===============================================
+
+/* ----- Pagination ----- */
+
+.disabled {
+    pointer-events: none !important;
+}
+
+.center {
+    text-align: center;
+}
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+}
+
+.pagination a.active {
+    background-color: #6170af;
+    color: white;
+    border: 1px solid #6170af;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
+.pagination a:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.pagination a:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
