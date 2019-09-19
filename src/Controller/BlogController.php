@@ -86,12 +86,13 @@ class BlogController extends AbstractController
         // ------ Sans injection de dépendance -----
 
         // $repo = $this->getDoctrine()->getRepository(Article::class); // Recup données dans BDD
+        // $articles = $repo->findAll();
     
         // $limit = 5;
         // $start = $page * $limit - $limit;
         // // 1*10 - 10 = 0
         // // 2*10 - 10 = 10 // Explique pourquoi $start = $page * $limit - $limit;
-        // $total = count($repo->findAll());
+        // $total = count($articles);
         // $pages = ceil($total / $limit); // ceil arrondit au nb supérieur
 
         // return $this->render('blog/index_pagination.html.twig', [
@@ -103,11 +104,13 @@ class BlogController extends AbstractController
 
         // ------ Avec injection de dépendance -----
 
+        $articles = $this->repo->findAll();
+
         $limit = 5;
         $start = $page * $limit - $limit;
         // 1*10 - 10 = 0
         // 2*10 - 10 = 10 // Explique pourquoi $start = $page * $limit - $limit;
-        $total = count($this->repo->findAll());
+        $total = count($articles);
         $pages = ceil($total / $limit); // ceil arrondit au nb supérieur
 
         return $this->render('blog/index_pagination.html.twig', [
