@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  jeu. 19 sep. 2019 à 09:28
+-- Généré le :  jeu. 19 sep. 2019 à 13:54
 -- Version du serveur :  10.4.6-MariaDB
 -- Version de PHP :  7.3.9
 
@@ -61,7 +61,8 @@ INSERT INTO `article` (`id`, `title`, `content`, `image`, `created_at`, `categor
 (56, 'qwqw', 'qwqwqqq q qw qq qw q', 'http://qwqwqwq.qq', '2019-09-18 16:59:52', 1),
 (57, 'Le dernier avant de partir', 'Le dernier avant de partir Le dernier avant de partir Le dernier avant de partir !', 'https://lorempixel.com/640/480/?40368', '2019-09-18 17:02:48', 1),
 (58, 'dsdsds', 'dsdsd sd s s s', 'http://dsds.ss', '2019-09-18 17:07:47', 1),
-(59, 'abcd', 'aaaaaaaaaaaaaaaaaaaaaaaaa', 'http://aaaaa.aa', '2019-09-19 09:15:46', 1);
+(59, 'abcd', 'aaaaaaaaaaaaaaaaaaaaaaaaa', 'http://aaaaa.aa', '2019-09-19 09:15:46', 1),
+(60, 'Créer ou éditer un article', 'Créer ou éditer un article', 'http://azedf.aa', '2019-09-19 13:53:50', 1);
 
 -- --------------------------------------------------------
 
@@ -124,7 +125,8 @@ INSERT INTO `comment` (`id`, `article_id`, `author`, `content`, `created_at`) VA
 (86, 36, 'sss', 'zzz', '2019-09-18 15:42:40'),
 (87, 36, 's', 's', '2019-09-18 15:44:58'),
 (88, 57, 'test', 'test', '2019-09-18 17:02:54'),
-(89, 59, 'ddd', 'ddddddddd', '2019-09-19 09:15:51');
+(89, 59, 'ddd', 'ddddddddd', '2019-09-19 09:15:51'),
+(90, 60, 'sds', 'ss', '2019-09-19 13:53:54');
 
 -- --------------------------------------------------------
 
@@ -168,7 +170,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `email`, `username`, `password`, `roles`) VALUES
 (1, '1234@1234.fr', '1234', '$2y$13$zR4Juuqs9FF4hwT/Q3hPs.ZRJD1qyA1Agh1bTnlOMHP3uQQDq86Vy', 'a:1:{i:0;s:10:\"ROLE_ADMIN\";}'),
-(3, '123456@123456.fr', '123456', '$2y$13$yp8q3qmacSI2GgIpuVALEeQcdwoNW2HddmrvkvCEd3DlNMSaRukay', 'a:1:{i:0;s:9:\"ROLE_USER\";}');
+(2, '123456@123456.fr', '123456', '$2y$13$yp8q3qmacSI2GgIpuVALEeQcdwoNW2HddmrvkvCEd3DlNMSaRukay', 'a:1:{i:0;s:9:\"ROLE_USER\";}'),
+(3, 'azerty@azerty.fr', 'azerty', '$2y$13$ZWvvat08PqZ7FaH1HK86tOv844PSF.ma1xSuKc4wvKHYeEAZiN0..', NULL);
 
 --
 -- Index pour les tables déchargées
@@ -216,7 +219,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `article`
 --
 ALTER TABLE `article`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT pour la table `category`
@@ -228,13 +231,13 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT pour la table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Contraintes pour les tables déchargées

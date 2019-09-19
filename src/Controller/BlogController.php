@@ -66,7 +66,7 @@ class BlogController extends AbstractController
         
 
 
-        return $this->render('blog/index.html.twig', [
+        return $this->render('blog/index_all.html.twig', [
             'articles' => $articles, // On va créer dans twig la variable articles qui contiendra le contenu de la variable $articles
         ]);
     }

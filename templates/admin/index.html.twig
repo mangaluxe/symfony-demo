@@ -19,6 +19,10 @@
         </div>
     {% endfor %}
 
+    <div class="text-center my-5">
+        <a href="{{ path('admin_create') }}" class="btn btn-success">Créer un article</a>
+    </div>
+
     <table class="table table-striped">
         <thead>
         <tr>
@@ -54,10 +58,6 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <div class="text-right">
-        <a href="{{ path('admin_create') }}" class="btn btn-primary">Créer un article</a>
-    </div>
 
 </div>
 

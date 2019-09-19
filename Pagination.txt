@@ -28,7 +28,7 @@ Dans controller :
 
         // ]);
 
-        // ------ Avec injection de dépendance -----
+        // ------ Avec injection de dépendance dans constructeur -----
         
         $articles = $this->repo->findAll();
 
