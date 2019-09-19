@@ -4,10 +4,11 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-// use Cocur\Slugify\Slugify;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert; // Ajouté pour validation de formulaire
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity; // Ajouté pour UniqueEntity
+
+use Cocur\Slugify\Slugify;
 
 
 /**
@@ -89,11 +90,11 @@ class Article
 
 
 
-    // // Ajouté :
-    // public function getSlug(): string
-    // {
-    //     return (new Slugify())->slugify($this->title);
-    // }
+    // Ajouté pour slug :
+    public function getSlug(): string
+    {
+        return (new Slugify())->slugify($this->title);
+    }
 
 
 

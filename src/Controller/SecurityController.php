@@ -64,13 +64,11 @@ class SecurityController extends AbstractController
 
 
             // ------ Sans injection de dépendance -----
-
             // $em = $this->getDoctrine()->getManager();
             // $em->persist($user);
             // $em->flush();
 
             // ------ Avec injection de dépendance -----
-
             $this->em->persist($user);
             $this->em->flush();
 

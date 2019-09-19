@@ -1,11 +1,45 @@
-Taper dans Cmder pour installer :
+﻿Taper dans Cmder pour installer :
 composer require cocur/slugify
 
+==============================================
 Mettre dans le fichier Entity\Entity.php :
+==============================================
+
 use Cocur\Slugify\Slugify;
 
-// Ajout� :
+// Ajouté pour slug :
 public function getSlug(): string
 {
     return (new Slugify())->slugify($this->title);
 }
+
+==============================================
+Mettre dans le Controller :
+==============================================
+
+    /**
+     * ========================================= Affiche 1 article (avec slug) =========================================
+     * @Route("/blog_slug/{slug}-{id}", name="blog_show_slug", requirements={"slug": "[a-z0-9\-]*"})
+     */
+    public function show_slug(Article $article, string $slug)
+    {
+        // Slug :
+        if ($article->getSlug() !== $slug) {
+            return $this->redirectToRoute('property.show', [
+                'id' => $article->getId(),
+                'slug' => $article->getSlug()
+            ], 301);
+        }
+
+        return $this->render('blog/show.html.twig', [
+            'article' => $article,
+        ]);
+    }
+
+==============================================
+Mettre dans le fichier twig :
+==============================================
+
+<a href="{{ path('blog_show_slug', {'id': article.id, slug: article.slug}) }}">Lire la suite</a>
+
+

@@ -36,7 +36,6 @@ class AdminController extends AbstractController
     public function index()
     {
         // ------ Sans injection de dépendance -----
-
         // $repo = $this->getDoctrine()->getRepository(Article::class);
 
         // // $articles = $repo->find(2);
@@ -46,7 +45,6 @@ class AdminController extends AbstractController
         // $articles = $repo->findAll();
 
         // ------ Avec injection de dépendance -----
-
         $articles = $this->repo->findAll();
         
 
@@ -93,13 +91,11 @@ class AdminController extends AbstractController
             }
 
             // ------ Sans injection de dépendance -----
-            
             // $em = $this->getDoctrine()->getManager();
             // $em->persist($article);
             // $em->flush();
 
             // ------ Avec injection de dépendance -----
-
             $this->em->persist($article);
             $this->em->flush();
 
