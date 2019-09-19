@@ -49,7 +49,7 @@ class BlogController extends AbstractController
 
 
     /**
-     * ======================================== Liste des articles (Tout sur une page)========================================
+     * ======================================== Liste des articles (Tout sur une page) ========================================
      * @Route("/blog", name="blog_all")
      */
     public function index_all()
@@ -58,11 +58,6 @@ class BlogController extends AbstractController
         // ------ Sans injection de dépendance -----
 
         // $repo = $this->getDoctrine()->getRepository(Article::class);
-
-        // // $articles = $repo->find(2);
-        // // $articles = $repo->findOneByTitle('Titre de l\'article');
-        // // $articles = $repo->findByTitle('Titre');
-        // // $articles = $repo->findOneBy(['floor' => 4]);
         // $articles = $repo->findAll();
 
         // ------ Avec injection de dépendance -----
