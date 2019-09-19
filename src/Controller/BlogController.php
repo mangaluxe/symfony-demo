@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Controller;
 
 use App\Entity\Comment; // Ajouté pour commentaire
@@ -243,14 +242,14 @@ class BlogController extends AbstractController
 
 
         // ---------- Slug ---------
-        if ($article->getSlug() !== $slug) {
+        if ($article->getSlug() !== $slug) { // Il faut mettre "Article $article" dans la fonction en paramètre pour l'injection de dépendance
             return $this->redirectToRoute('property.show', [
                 'id' => $article->getId(),
                 'slug' => $article->getSlug()
             ], 301);
         }
         // ----------
-        
+
 
         return $this->render('blog/show.html.twig', [
             'article' => $article,
