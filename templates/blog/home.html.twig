@@ -18,4 +18,28 @@
         <p>Interdit aux enfants !  Vous avez seulement {{ age }} ans</p>
     {% endif %}
 
+
+    <hr><h1 class="my-4">Les derniers articles ajoutés :</h1>
+
+
+    <section class="articles">
+
+        {% for article in articles %}
+        <articles>
+            <h1 class="my-4">{{ article.title }}</h1>
+            <div class="metadata my-1">Ecrit le {{ article.createdAt | date('d/m/Y à H:i:s') }} dans la catégorie {{ article.category.title }}</div>
+            <div class="content">
+                <img src="{{ article.image }}" alt="">
+                <p>{{ article.content | raw }}</p>
+
+                <a href="{{ path('blog_show', {'id': article.id}) }}" class="btn btn-primary">Lire la suite</a> {# La fonction path peut prendre un 2e parametre : {'id': article.id}. On peut aussi écrire {id: article.id} #}
+
+                <a href="{{ path('blog_show_slug', {'id': article.id, slug: article.slug}) }}" class="btn btn-primary">Lire la suite (slug)</a>
+                
+            </div>
+        </article>
+        {% endfor %}
+
+    </section>
+
 {% endblock %}

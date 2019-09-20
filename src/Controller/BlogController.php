@@ -35,10 +35,22 @@ class BlogController extends AbstractController
      */
     public function home()
     {
+
+        // ------ Sans injection de dépendance -----
+        // $repo = $this->getDoctrine()->getRepository(Article::class);
+        // $articles = $repo->findLatest();
+
+        // ------ Avec injection de dépendance -----
+        $articles = $this->repo->findLatest(); // Fonction qu'on a créé dans src\Repository\ArticleRepository.php
+        
+
+
+
         return $this->render('blog/home.html.twig', [
             'title' => "Bienvenue ici les amis !", // On peut utiliser des paramètres ici pour donner des valeurs aux variables afin de les utiliser dans les fichiers twig
             'age' => 31,
-            'message1' => 'Mon premier message.'
+            'message1' => 'Mon premier message.',
+            'articles' => $articles, // On va créer dans twig la variable articles qui contiendra le contenu de la variable $articles
         ]);
     }
 
@@ -58,7 +70,8 @@ class BlogController extends AbstractController
         // $articles = $repo->findAll();
 
         // ------ Avec injection de dépendance -----
-        $articles = $this->repo->findAll();
+        // $articles = $this->repo->findAll(); // Natif
+        $articles = $this->repo->findAllDesc(); // Fonction qu'on a créé dans src\Repository\ArticleRepository.php
         
 
 
